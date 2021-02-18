@@ -1,0 +1,14 @@
+.form {
+  margin-top: 10px;
+  width: 100%;
+  .inputControl {
+    width: 80%;
+  }
+}
+@media (min-width: 320px) and (max-width: 1024px) {
+  .form {
+    .inputControl {
+      width: 100%;
+    }
+  }
+}
