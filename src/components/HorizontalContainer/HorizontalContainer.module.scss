@@ -1,0 +1,34 @@
+.horizontalContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .horizontalContainerItems {
+    padding-left: 10px;
+    padding-top: 30px;
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    user-select: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    will-change: transform;
+    position: relative;
+  }
+}
+@media (min-width: 577px) {
+  .horizontalContainer {
+    min-height: 400px;
+    .horizontalContainerItems {
+      height: 350px;
+    }
+  }
+}
+@media (min-width: 321px) and (max-width: 576px) {
+  .horizontalContainer {
+    height: 280px;
+    .horizontalContainerItems {
+      height: 280px;
+    }
+  }
+}
