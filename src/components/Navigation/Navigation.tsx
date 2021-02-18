@@ -11,13 +11,17 @@ function Navigation() {
     <Navbar className={styles.navbar} bg='light' expand='md' sticky='top'>
       <Navbar.Toggle className={styles.toggle} aria-controls='basic-navbar-nav'>
         {hamburgerIcon ? (
-          <IconButton onClick={() => setHamburgerIcon(!hamburgerIcon)}>
-            <CloseIcon className={styles.closeIcon} fontSize='large' />
-          </IconButton>
+          <CloseIcon
+            onClick={() => setHamburgerIcon(!hamburgerIcon)}
+            className={styles.closeIcon}
+            fontSize='large'
+          />
         ) : (
-          <IconButton onClick={() => setHamburgerIcon(!hamburgerIcon)}>
-            <MenuIcon className={styles.hamburgerIcon} fontSize='large' />
-          </IconButton>
+          <MenuIcon
+            onClick={() => setHamburgerIcon(!hamburgerIcon)}
+            className={styles.hamburgerIcon}
+            fontSize='large'
+          />
         )}
       </Navbar.Toggle>
       <Navbar.Collapse id='basic-navbar-nav'>

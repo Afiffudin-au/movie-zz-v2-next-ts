@@ -19,7 +19,7 @@ function Search() {
         placeholder='Search'
         onChange={(e) => setQuery(e.target.value)}
       />
-      <button onClick={handleSearch} style={{ display: 'none' }}></button>
+      <button onClick={handleSearch} style={{ display: 'none' }} />
     </Form>
   )
 }
