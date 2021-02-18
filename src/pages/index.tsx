@@ -2,7 +2,8 @@ import Head from 'next/head'
 import React from 'react'
 import Banner from '../components/Banner/Banner'
 import Navigation from '../components/Navigation/Navigation'
-export default function Home() {
+import PopularGroup from '../components/PopularGroup/PopularGroup'
+export default function Home({ populars }: any) {
   return (
     <div className='home'>
       <Head>
@@ -11,6 +12,26 @@ export default function Home() {
       </Head>
       <Navigation />
       <Banner />
+      <PopularGroup populars={populars} />
     </div>
   )
+}
+export async function getStaticProps() {
+  const res = await fetch(
+    `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}&page=1`
+  )
+  if (!res.ok) {
+    throw new Error('Fetching Error')
+  }
+  const data = await res.json()
+  if (!data) {
+    return {
+      notFound: true,
+    }
+  }
+  return {
+    props: {
+      populars: data,
+    },
+  }
 }

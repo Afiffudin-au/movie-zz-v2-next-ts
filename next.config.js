@@ -1,6 +1,7 @@
 
 module.exports = {
   env: {
+    API_KEY : 'f59a67c847f06eb38cff7065821c1fd9',
     REACT_APP_POSTER_URL : 'https://image.tmdb.org/t/p/original',
     REACT_APP_MOVIE_POPULAR : 'https://api.themoviedb.org/3/movie/popular?api_key=f59a67c847f06eb38cff7065821c1fd9',
     REACT_APP_MOVIE_PLAYING : 'https://api.themoviedb.org/3/movie/now_playing?api_key=f59a67c847f06eb38cff7065821c1fd9',
