@@ -3,14 +3,14 @@ import StarRateIcon from '@material-ui/icons/StarRate'
 import { amber } from '@material-ui/core/colors'
 import styles from './Card.module.scss'
 import { LightTooltip } from '../Mui-custom/LightTooltip/LightTooltip'
-export interface CardOption {
+interface CardOption {
   url: string
   mediaType: string
   styleProps: any
   id: number | string
   releaseDate: any
   originalTitle: string
-  posterPath: string
+  posterPath: any
   voteAverage: number | string
 }
 function Card({
@@ -32,8 +32,9 @@ function Card({
           title={originalTitle || ''}
           placement='top'
           arrow>
-          <img src={posterPath} alt={''} />
+          <img src={posterPath} alt={originalTitle} />
         </LightTooltip>
+
         <div className={styles.Card_desc}>
           <h1>{originalTitle}</h1>
           <p>{releaseDate}</p>

@@ -1,9 +1,10 @@
 import Head from 'next/head'
 import React from 'react'
 import Banner from '../components/Banner/Banner'
+import MovieToWatchGroup from '../components/MovieToWatchGroup/MovieToWatchGroup'
 import Navigation from '../components/Navigation/Navigation'
 import PopularGroup from '../components/PopularGroup/PopularGroup'
-export default function Home({ populars }: any) {
+export default function Home({ populars, movieToWatch, tvToWatch }: any) {
   return (
     <div className='home'>
       <Head>
@@ -13,25 +14,27 @@ export default function Home({ populars }: any) {
       <Navigation />
       <Banner />
       <PopularGroup populars={populars} />
+      <MovieToWatchGroup movieToWatch={movieToWatch} />
     </div>
   )
 }
 export async function getStaticProps() {
-  const res = await fetch(
-    `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}&page=1`
-  )
-  if (!res.ok) {
-    throw new Error('Fetching Error')
-  }
-  const data = await res.json()
-  if (!data) {
-    return {
-      notFound: true,
-    }
-  }
+  const [populars, movieToWatch, tvToWatch] = await Promise.all([
+    fetch(
+      `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}&page=1`
+    ),
+    fetch(
+      `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.API_KEY}&page=1`
+    ),
+    fetch(
+      `https://api.themoviedb.org/3/tv/top_rated?api_key=${process.env.API_KEY}&page=1`
+    ),
+  ])
   return {
     props: {
-      populars: data,
+      populars: await populars.json(),
+      movieToWatch: await movieToWatch.json(),
+      tvToWatch: await tvToWatch.json(),
     },
   }
 }
