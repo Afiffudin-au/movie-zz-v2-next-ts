@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { BottomNavigation, BottomNavigationAction } from '@material-ui/core'
+import { BottomNavigation } from '@material-ui/core'
 import LiveTvIcon from '@material-ui/icons/LiveTv'
 import MovieIcon from '@material-ui/icons/Movie'
 import TheatersIcon from '@material-ui/icons/Theaters'
 import styles from './PopularGroup.module.scss'
 import PopularContainer from '../PopularContainer/PopularContainer'
+import { BottomNavigationStyled } from '../Mui-custom/BottomNavigation/BottomNavigation'
 function PopularGroup({ populars }: any) {
-  const [value, setValue] = React.useState(0)
+  const [value, setValue] = React.useState<number>(0)
   return (
     <div className={styles.popularGroup}>
       <div className={styles.popularWrap}>
@@ -18,9 +19,9 @@ function PopularGroup({ populars }: any) {
           }}
           showLabels
           style={{ width: '320px' }}>
-          <BottomNavigationAction label='Streaming' icon={<MovieIcon />} />
-          <BottomNavigationAction label='On Tv' icon={<LiveTvIcon />} />
-          <BottomNavigationAction label='In Theaters' icon={<TheatersIcon />} />
+          <BottomNavigationStyled label='Streaming' icon={<MovieIcon />} />
+          <BottomNavigationStyled label='On Tv' icon={<LiveTvIcon />} />
+          <BottomNavigationStyled label='In Theaters' icon={<TheatersIcon />} />
         </BottomNavigation>
       </div>
       <PopularContainer populars={populars} />

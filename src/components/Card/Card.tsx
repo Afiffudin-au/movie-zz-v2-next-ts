@@ -2,7 +2,7 @@ import React from 'react'
 import StarRateIcon from '@material-ui/icons/StarRate'
 import { amber } from '@material-ui/core/colors'
 import styles from './Card.module.scss'
-import { LightTooltip } from '../extraComponents/LightTooltip/LightTooltip'
+import { LightTooltip } from '../Mui-custom/LightTooltip/LightTooltip'
 export interface CardOption {
   url: string
   mediaType: string
