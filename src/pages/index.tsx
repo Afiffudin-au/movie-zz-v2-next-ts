@@ -4,6 +4,7 @@ import Banner from '../components/Banner/Banner'
 import MovieToWatchGroup from '../components/MovieToWatchGroup/MovieToWatchGroup'
 import Navigation from '../components/Navigation/Navigation'
 import PopularGroup from '../components/PopularGroup/PopularGroup'
+import TvToWatchGroup from '../components/TvToWatchGroup/TvToWatchGroup'
 export default function Home({ populars, movieToWatch, tvToWatch }: any) {
   return (
     <div className='home'>
@@ -15,6 +16,7 @@ export default function Home({ populars, movieToWatch, tvToWatch }: any) {
       <Banner />
       <PopularGroup populars={populars} />
       <MovieToWatchGroup movieToWatch={movieToWatch} />
+      <TvToWatchGroup tvToWatch={tvToWatch} />
     </div>
   )
 }

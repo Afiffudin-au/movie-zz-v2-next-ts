@@ -1,9 +1,13 @@
 import React from 'react'
 import HorizontalContainer from '../HorizontalContainer/HorizontalContainer'
 import Card from '../Card/Card'
-import { MovieCardItem } from '../PopularContainer/PopularContainer'
 import { StyledLinearProgress } from '../Mui-custom/LoadingProgress/LoadingProgress'
-function MovieToWatchContainer({ movieToWatch }: any) {
+import { MovieCardItems } from '../../interfaces/movieCardItem'
+function MovieToWatchContainer({
+  movieToWatch,
+}: {
+  movieToWatch: Required<any>
+}) {
   return (
     <>
       {/* {
@@ -13,7 +17,7 @@ function MovieToWatchContainer({ movieToWatch }: any) {
       </div>
     } */}
       <HorizontalContainer>
-        {movieToWatch?.results?.map((item: MovieCardItem, index: number) => (
+        {movieToWatch?.results?.map((item: MovieCardItems, index: number) => (
           <Card
             // url={url}
             id={item.id}

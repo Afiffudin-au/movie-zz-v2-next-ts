@@ -1,8 +1,9 @@
 import React from 'react'
-import HorizontalContainer from '../HorizontalContainer/HorizontalContainer'
-import Card from '../Card/Card'
 import { MovieCardItems } from '../../interfaces/movieCardItem'
-function PopularContainer({ populars }: { populars: Required<any> }) {
+import Card from '../Card/Card'
+import HorizontalContainer from '../HorizontalContainer/HorizontalContainer'
+import { StyledLinearProgress } from '../Mui-custom/LoadingProgress/LoadingProgress'
+function TvToWatchContainer({ tvToWatch }: { tvToWatch: Required<any> }) {
   return (
     <>
       {/* {loading && (
@@ -11,10 +12,9 @@ function PopularContainer({ populars }: { populars: Required<any> }) {
         </div>
       )} */}
       <HorizontalContainer>
-        {populars?.results?.map((item: MovieCardItems, index: number) => (
+        {tvToWatch?.results?.map((item: MovieCardItems, index: number) => (
           <Card
             // url={url}
-
             id={item.id}
             releaseDate={item.release_date || item.first_air_date}
             originalTitle={item.original_title || item.original_name}
@@ -28,4 +28,4 @@ function PopularContainer({ populars }: { populars: Required<any> }) {
   )
 }
 
-export default PopularContainer
+export default TvToWatchContainer
