@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import React from 'react'
+import AllMovies from '../components/AllMovies/AllMovies'
 import Banner from '../components/Banner/Banner'
 import MovieToWatchGroup from '../components/MovieToWatchGroup/MovieToWatchGroup'
 import Navigation from '../components/Navigation/Navigation'
@@ -17,6 +18,7 @@ export default function Home({ populars, movieToWatch, tvToWatch }: any) {
       <PopularGroup populars={populars} />
       <MovieToWatchGroup movieToWatch={movieToWatch} />
       <TvToWatchGroup tvToWatch={tvToWatch} />
+      <AllMovies dataMovies={populars} />
     </div>
   )
 }

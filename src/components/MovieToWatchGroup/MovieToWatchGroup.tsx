@@ -6,7 +6,7 @@ import AccessTimeIcon from '@material-ui/icons/AccessTime'
 import styles from './MovieToWatchGroup.module.scss'
 import MovieToWatchContainer from '../MovieToWatchContainer/MovieToWatchContainer'
 function MovieToWatchGroup({ movieToWatch }: any) {
-  const [value, setValue] = React.useState(0)
+  const [value, setValue] = React.useState<number>(0)
   return (
     <div className={styles.movieToWatchGroup}>
       <div className={styles.movieToWatchGroupWrap}>

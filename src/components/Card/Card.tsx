@@ -3,10 +3,10 @@ import StarRateIcon from '@material-ui/icons/StarRate'
 import { amber } from '@material-ui/core/colors'
 import styles from './Card.module.scss'
 import { LightTooltip } from '../Mui-custom/LightTooltip/LightTooltip'
-interface CardOption {
+export interface CardOption {
   url: string
   mediaType: string
-  styleProps: any
+  styleProps: {}
   id: number | string
   releaseDate: any
   originalTitle: string

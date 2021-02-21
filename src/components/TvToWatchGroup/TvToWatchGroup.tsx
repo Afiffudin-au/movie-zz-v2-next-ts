@@ -6,7 +6,7 @@ import styles from './TvToWatchGroup.module.scss'
 import TvToWatchContainer from '../TvToWatchContainer/TvToWatchContainer'
 import { BottomNavigationStyled } from '../Mui-custom/BottomNavigation/BottomNavigation'
 function TvToWatchGroup({ tvToWatch }: any) {
-  const [value, setValue] = React.useState(0)
+  const [value, setValue] = React.useState<number>(0)
   return (
     <div className={styles.tvToWatchGroup}>
       <div className={styles.tvToWatchGroupWrap}>
