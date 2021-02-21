@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { BottomNavigation } from '@material-ui/core'
 import LiveTvIcon from '@material-ui/icons/LiveTv'
 import MovieIcon from '@material-ui/icons/Movie'
@@ -6,8 +6,17 @@ import TheatersIcon from '@material-ui/icons/Theaters'
 import styles from './PopularGroup.module.scss'
 import PopularContainer from '../PopularContainer/PopularContainer'
 import { BottomNavigationStyled } from '../Mui-custom/BottomNavigation/BottomNavigation'
-function PopularGroup({ populars }: any) {
+import { useGetPopular } from '../../custom-hooks/usePopular/useGetPopular'
+function PopularGroup({ popularsSSR }: any) {
   const [value, setValue] = React.useState<number>(0)
+  const {
+    getMoviePopular,
+    getTvPopular,
+    getMoviePopularInTheater,
+  } = useGetPopular()
+  useEffect(() => {
+    getMoviePopular()
+  }, [])
   return (
     <div className={styles.popularGroup}>
       <div className={styles.popularWrap}>
@@ -19,12 +28,24 @@ function PopularGroup({ populars }: any) {
           }}
           showLabels
           style={{ width: '320px' }}>
-          <BottomNavigationStyled label='Streaming' icon={<MovieIcon />} />
-          <BottomNavigationStyled label='On Tv' icon={<LiveTvIcon />} />
-          <BottomNavigationStyled label='In Theaters' icon={<TheatersIcon />} />
+          <BottomNavigationStyled
+            onClick={getMoviePopular}
+            label='Streaming'
+            icon={<MovieIcon />}
+          />
+          <BottomNavigationStyled
+            onClick={getTvPopular}
+            label='On Tv'
+            icon={<LiveTvIcon />}
+          />
+          <BottomNavigationStyled
+            onClick={getMoviePopularInTheater}
+            label='In Theaters'
+            icon={<TheatersIcon />}
+          />
         </BottomNavigation>
       </div>
-      <PopularContainer populars={populars} />
+      <PopularContainer popularsSSR={popularsSSR} />
     </div>
   )
 }

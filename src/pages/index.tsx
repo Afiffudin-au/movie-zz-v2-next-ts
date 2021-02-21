@@ -15,10 +15,10 @@ export default function Home({ populars, movieToWatch, tvToWatch }: any) {
       </Head>
       <Navigation />
       <Banner />
-      <PopularGroup populars={populars} />
-      <MovieToWatchGroup movieToWatch={movieToWatch} />
-      <TvToWatchGroup tvToWatch={tvToWatch} />
-      <AllMovies dataMovies={populars} />
+      <PopularGroup popularsSSR={populars} />
+      {/* <MovieToWatchGroup movieToWatch={movieToWatch} /> */}
+      {/* <TvToWatchGroup tvToWatch={tvToWatch} /> */}
+      {/* <AllMovies dataMovies={populars} /> */}
     </div>
   )
 }

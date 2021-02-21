@@ -19,7 +19,7 @@ export interface PopoularActionItems{
 export interface PopularBlockItems{
   loading : boolean | null
   url : string,
-  populars : Array<any>
+  populars : any
 }
 
 //AddMovieToWatchBlock
@@ -29,7 +29,7 @@ export interface MovieToWatchActionItems{
   loading : boolean
 }
 export interface MovieToWatchBlocksItems{
-  movieToWatch : Array<any>
+  movieToWatch : any
   url : string
   loading : boolean | null
 }
@@ -42,7 +42,7 @@ export interface TvToWatchActionItems{
 export interface TvToWatchBlocksItems{
   loading : boolean | null
   url : string
-  tvToWatch : Array<any>
+  tvToWatch : any
 }
 //addUrlParams
 export interface UrlParamsActionItems{
@@ -67,7 +67,7 @@ export interface MovieBlockAction{
   dataMovies : any
 }
 export interface MovieBlockItems{
-  movies : Array<any>
+  movies : any
   loading : boolean | null
   url : string
 }
@@ -80,7 +80,7 @@ export interface TvShowBlockActionItems{
 export interface TvShowBlockItems{
   loading : boolean | null
   url : string
-  tvShows : Array<any>
+  tvShows : any
 }
 //addSearchResult Section
 export interface SearchResultActionItems{
@@ -90,7 +90,7 @@ export interface SearchResultActionItems{
   dataMultiSearch : any
 }
 export interface SearchResultBlocksItems{
-  multiResults : Array<any>
+  multiResults : any
   loading  : boolean | null
   url : string
   totalPages : number
