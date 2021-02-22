@@ -6,8 +6,8 @@ import styles from './TvToWatchGroup.module.scss'
 import TvToWatchContainer from '../TvToWatchContainer/TvToWatchContainer'
 import { useTvToWatch } from '../../custom-hooks/useTvToWatch/useTvToWatch'
 import { BottomNavigationStyled } from '../Mui-custom/BottomNavigation/BottomNavigation'
-function TvToWatchGroup({ tvToWatch }: any) {
-  const [data, setData] = useState<any>(tvToWatch)
+function TvToWatchGroup({ tvToWatchSSR }: { tvToWatchSSR: any }) {
+  const [data, setData] = useState<any>(tvToWatchSSR)
   const [value, setValue] = React.useState<number>(0)
   const { getTvTopRated, getTvAiringToday } = useTvToWatch()
   return (

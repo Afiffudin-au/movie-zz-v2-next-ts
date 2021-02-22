@@ -1,11 +1,11 @@
+@use '../../styles/root.scss';
 .movieToWatchGroup {
   padding: 10px;
   .movieToWatchGroupWrap {
     display: flex;
     align-items: center;
     h1 {
-      font-weight: 600;
-      font-size: 25px;
+      @include root.gradientText;
     }
   }
 }

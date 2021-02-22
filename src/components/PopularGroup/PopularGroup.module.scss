@@ -1,11 +1,11 @@
+@use '../../styles/root.scss';
 .popularGroup {
   padding: 10px;
   .popularWrap {
     display: flex;
     align-items: center;
     h1 {
-      font-weight: 600;
-      font-size: 25px;
+      @include root.gradientText;
     }
   }
 }

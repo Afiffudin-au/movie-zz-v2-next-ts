@@ -16,9 +16,9 @@ export default function Home({ populars, movieToWatch, tvToWatch }: any) {
       <Navigation />
       <Banner />
       <PopularGroup popularsSSR={populars} />
-      <MovieToWatchGroup movieToWatch={movieToWatch} />
-      <TvToWatchGroup tvToWatch={tvToWatch} />
-      {/* <AllMovies dataMovies={populars} /> */}
+      <MovieToWatchGroup movieToWatchSSR={movieToWatch} />
+      <TvToWatchGroup tvToWatchSSR={tvToWatch} />
+      <AllMovies />
     </div>
   )
 }

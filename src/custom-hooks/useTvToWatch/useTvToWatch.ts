@@ -11,7 +11,7 @@ export function useTvToWatch(){
     }))
     Axios({
       method : 'GET',
-      url : 'https://api.themoviedb.org/3/tv/top_rated?api_key=f59a67c847f06eb38cff7065821c1fd9',
+      url : `https://api.themoviedb.org/3/tv/top_rated?api_key=${process.env.API_KEY}`,
       params: {page : 1}
     }).then((res:any)=>{
       dispatch(addTvToWatch({
@@ -36,7 +36,7 @@ export function useTvToWatch(){
     }))
     Axios({
       method : 'GET',
-      url : 'https://api.themoviedb.org/3/tv/airing_today?api_key=f59a67c847f06eb38cff7065821c1fd9',
+      url : `https://api.themoviedb.org/3/tv/airing_today?api_key=${process.env.API_KEY}`,
       params: {page : 1}
     }).then((res:any)=>{
       dispatch(addTvToWatch({

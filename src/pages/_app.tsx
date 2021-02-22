@@ -5,6 +5,7 @@ import Head from 'next/head'
 import { Provider } from 'react-redux'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import store from '../store/store'
+import '../styles/root.scss'
 function App({ Component, pageProps }: AppProps) {
   React.useEffect(() => {
     const jssStyles = document.querySelector('#jss-server-side')

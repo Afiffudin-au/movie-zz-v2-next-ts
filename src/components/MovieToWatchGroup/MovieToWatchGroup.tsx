@@ -6,8 +6,8 @@ import AccessTimeIcon from '@material-ui/icons/AccessTime'
 import styles from './MovieToWatchGroup.module.scss'
 import MovieToWatchContainer from '../MovieToWatchContainer/MovieToWatchContainer'
 import { useGetMovieToWatch } from '../../custom-hooks/useMovieToWatch/useGetMovieToWatch'
-function MovieToWatchGroup({ movieToWatch }: any) {
-  const [data, setData] = useState<any>(movieToWatch)
+function MovieToWatchGroup({ movieToWatchSSR }: { movieToWatchSSR: any }) {
+  const [data, setData] = useState<any>(movieToWatchSSR)
   const [value, setValue] = React.useState<number>(0)
   const { getMovieTopRated, getMovieUpComing } = useGetMovieToWatch()
 

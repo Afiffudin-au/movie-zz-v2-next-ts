@@ -1,0 +1,14 @@
+@mixin gradientText {
+  background: -webkit-linear-gradient(86deg, #29c593, #2673c1 80%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+  font-size: 25px;
+}
+@mixin gradientTextCard {
+  background: -webkit-linear-gradient(86deg, #29c593, #2673c1 80%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
