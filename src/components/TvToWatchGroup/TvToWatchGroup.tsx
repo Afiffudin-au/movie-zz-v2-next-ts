@@ -1,12 +1,15 @@
 import { BottomNavigation } from '@material-ui/core'
-import React, { useEffect, useRef } from 'react'
+import React, { useState } from 'react'
 import StarIcon from '@material-ui/icons/Star'
 import TodayIcon from '@material-ui/icons/Today'
 import styles from './TvToWatchGroup.module.scss'
 import TvToWatchContainer from '../TvToWatchContainer/TvToWatchContainer'
+import { useTvToWatch } from '../../custom-hooks/useTvToWatch/useTvToWatch'
 import { BottomNavigationStyled } from '../Mui-custom/BottomNavigation/BottomNavigation'
 function TvToWatchGroup({ tvToWatch }: any) {
+  const [data, setData] = useState<any>(tvToWatch)
   const [value, setValue] = React.useState<number>(0)
+  const { getTvTopRated, getTvAiringToday } = useTvToWatch()
   return (
     <div className={styles.tvToWatchGroup}>
       <div className={styles.tvToWatchGroupWrap}>
@@ -18,11 +21,25 @@ function TvToWatchGroup({ tvToWatch }: any) {
           }}
           showLabels
           style={{ width: '320px' }}>
-          <BottomNavigationStyled label='Top Rated' icon={<StarIcon />} />
-          <BottomNavigationStyled label='Airing Today' icon={<TodayIcon />} />
+          <BottomNavigationStyled
+            onClick={() => {
+              setData(false)
+              getTvTopRated()
+            }}
+            label='Top Rated'
+            icon={<StarIcon />}
+          />
+          <BottomNavigationStyled
+            label='Airing Today'
+            onClick={() => {
+              setData(false)
+              getTvAiringToday()
+            }}
+            icon={<TodayIcon />}
+          />
         </BottomNavigation>
       </div>
-      <TvToWatchContainer tvToWatch={tvToWatch} />
+      <TvToWatchContainer tvToWatchSSR={data} />
     </div>
   )
 }
