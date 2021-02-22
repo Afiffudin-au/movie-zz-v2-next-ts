@@ -23,6 +23,7 @@ function Card({
   posterPath,
   voteAverage,
 }: Partial<CardOption>) {
+  console.log(url)
   const handleDetail = () => {}
   return (
     <div className={styles.Card} style={styleProps}>

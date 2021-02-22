@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { BottomNavigation } from '@material-ui/core'
 import LiveTvIcon from '@material-ui/icons/LiveTv'
 import MovieIcon from '@material-ui/icons/Movie'
@@ -8,15 +8,13 @@ import PopularContainer from '../PopularContainer/PopularContainer'
 import { BottomNavigationStyled } from '../Mui-custom/BottomNavigation/BottomNavigation'
 import { useGetPopular } from '../../custom-hooks/usePopular/useGetPopular'
 function PopularGroup({ popularsSSR }: any) {
-  const [value, setValue] = React.useState<number>(0)
+  const [data, setData] = useState<any>(popularsSSR)
+  const [value, setValue] = useState<number>(0)
   const {
     getMoviePopular,
     getTvPopular,
     getMoviePopularInTheater,
   } = useGetPopular()
-  useEffect(() => {
-    getMoviePopular()
-  }, [])
   return (
     <div className={styles.popularGroup}>
       <div className={styles.popularWrap}>
@@ -29,23 +27,32 @@ function PopularGroup({ popularsSSR }: any) {
           showLabels
           style={{ width: '320px' }}>
           <BottomNavigationStyled
-            onClick={getMoviePopular}
+            onClick={() => {
+              setData(false)
+              getMoviePopular()
+            }}
             label='Streaming'
             icon={<MovieIcon />}
           />
           <BottomNavigationStyled
-            onClick={getTvPopular}
+            onClick={() => {
+              setData(false)
+              getTvPopular()
+            }}
             label='On Tv'
             icon={<LiveTvIcon />}
           />
           <BottomNavigationStyled
-            onClick={getMoviePopularInTheater}
+            onClick={() => {
+              setData(false)
+              getMoviePopularInTheater()
+            }}
             label='In Theaters'
             icon={<TheatersIcon />}
           />
         </BottomNavigation>
       </div>
-      <PopularContainer popularsSSR={popularsSSR} />
+      <PopularContainer popularsSSR={data} />
     </div>
   )
 }

@@ -18,20 +18,21 @@ function PopularContainer({ popularsSSR }: { popularsSSR: Required<any> }) {
         </div>
       )}
       <HorizontalContainer>
-        {populars?.results?.map((item: MovieCardItems, index: number) => (
-          <Card
-            url={url}
-            id={item.id}
-            releaseDate={item.release_date || item.first_air_date}
-            originalTitle={item.original_title || item.original_name}
-            posterPath={`${process.env.REACT_APP_POSTER_URL}${item.poster_path}`}
-            voteAverage={item.vote_average || 0}
-            key={item.id}
-          />
-        )) ||
-          popularsSSR?.results?.map((item: MovieCardItems, index: number) => (
+        {populars &&
+          populars?.results?.map((item: MovieCardItems, index: number) => (
             <Card
               url={url}
+              id={item.id}
+              releaseDate={item.release_date || item.first_air_date}
+              originalTitle={item.original_title || item.original_name}
+              posterPath={`${process.env.REACT_APP_POSTER_URL}${item.poster_path}`}
+              voteAverage={item.vote_average || 0}
+              key={item.id}
+            />
+          ))}
+        {popularsSSR &&
+          popularsSSR?.results?.map((item: MovieCardItems, index: number) => (
+            <Card
               id={item.id}
               releaseDate={item.release_date || item.first_air_date}
               originalTitle={item.original_title || item.original_name}
