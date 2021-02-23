@@ -3,15 +3,17 @@ import StarRateIcon from '@material-ui/icons/StarRate'
 import { amber } from '@material-ui/core/colors'
 import styles from './Card.module.scss'
 import { LightTooltip } from '../Mui-custom/LightTooltip/LightTooltip'
+import LazyLoad from 'react-lazyload'
+import { useRouter } from 'next/router'
 export interface CardOption {
-  url: string
-  mediaType: string
-  styleProps: {}
-  id: number | string
-  releaseDate: any
-  originalTitle: string
-  posterPath: any
-  voteAverage: number | string
+  url?: string
+  mediaType?: string
+  styleProps?: {}
+  id: Required<number | string | undefined>
+  releaseDate?: any
+  originalTitle?: string
+  posterPath?: any
+  voteAverage?: number | string
 }
 function Card({
   url,
@@ -22,8 +24,16 @@ function Card({
   originalTitle,
   posterPath,
   voteAverage,
-}: Partial<CardOption>) {
-  const handleDetail = () => {}
+}: CardOption) {
+  const router = useRouter()
+  const handleDetail = () => {
+    const query = router.query
+    query.url = url
+    router.push({
+      pathname: `/detail/${id}`,
+      query: query,
+    })
+  }
   return (
     <div className={styles.Card} style={styleProps}>
       <div onClick={handleDetail} className={styles.CardContent}>
@@ -32,7 +42,9 @@ function Card({
           title={originalTitle || ''}
           placement='top'
           arrow>
-          <img src={posterPath} alt={originalTitle} />
+          <LazyLoad>
+            <img src={posterPath} alt={originalTitle} />
+          </LazyLoad>
         </LightTooltip>
 
         <div className={styles.Card_desc}>

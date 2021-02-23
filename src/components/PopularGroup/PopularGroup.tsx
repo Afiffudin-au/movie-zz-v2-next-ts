@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { BottomNavigation } from '@material-ui/core'
-import LiveTvIcon from '@material-ui/icons/LiveTv'
 import MovieIcon from '@material-ui/icons/Movie'
 import TheatersIcon from '@material-ui/icons/Theaters'
 import styles from './PopularGroup.module.scss'
@@ -10,11 +9,7 @@ import { useGetPopular } from '../../custom-hooks/usePopular/useGetPopular'
 function PopularGroup({ popularsSSR }: { popularsSSR: any }) {
   const [data, setData] = useState<any>(popularsSSR)
   const [value, setValue] = useState<number>(0)
-  const {
-    getMoviePopular,
-    getTvPopular,
-    getMoviePopularInTheater,
-  } = useGetPopular()
+  const { getMoviePopular, getMoviePopularInTheater } = useGetPopular()
   return (
     <div className={styles.popularGroup}>
       <div className={styles.popularWrap}>
@@ -33,14 +28,6 @@ function PopularGroup({ popularsSSR }: { popularsSSR: any }) {
             }}
             label='Streaming'
             icon={<MovieIcon />}
-          />
-          <BottomNavigationStyled
-            onClick={() => {
-              setData(false)
-              getTvPopular()
-            }}
-            label='On Tv'
-            icon={<LiveTvIcon />}
           />
           <BottomNavigationStyled
             onClick={() => {

@@ -38,7 +38,7 @@ function AllMovies() {
         {dataMovies &&
           dataMovies?.results?.map((item: MovieCardItems, index: number) => (
             <MemoizedChildComponent
-              url={url}
+              url={process.env.REACT_APP_MOVIE_DETAIL}
               styleProps={{ display: 'block', width: '100%' }}
               id={item.id}
               releaseDate={item.release_date || item.first_air_date}

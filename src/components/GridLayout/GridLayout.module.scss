@@ -1,0 +1,28 @@
+@mixin gridCol($value) {
+  .gridLayout {
+    grid-template-columns: repeat($value, minmax(0, 1fr));
+  }
+}
+.gridLayout {
+  margin-top: 5px;
+  grid-column-gap: 5px;
+  display: grid;
+}
+@media (min-width: 320px) {
+  @include gridCol(3);
+}
+@media (min-width: 440px) {
+  @include gridCol(4);
+}
+@media (min-width: 576px) {
+  @include gridCol(6);
+}
+@media (min-width: 768px) {
+  @include gridCol(8);
+}
+@media (min-width: 1024px) {
+  @include gridCol(10);
+}
+@media (min-width: 1366px) {
+  @include gridCol(12);
+}

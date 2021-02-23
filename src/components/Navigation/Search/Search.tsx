@@ -1,7 +1,12 @@
 import React, { useState } from 'react'
 import { Form, FormControl } from 'react-bootstrap'
 import styles from './Search.module.scss'
+import { useRouter } from 'next/router'
+import { addSearchResult } from '../../../redux/movieSlice'
+import { useAppDispatch } from '../../../store/store'
 function Search() {
+  const router = useRouter()
+  const dispatch = useAppDispatch()
   const [query, setQuery] = useState<string>('')
   const handleSearch = (e: any) => {
     e.preventDefault()
@@ -9,7 +14,7 @@ function Search() {
     if (userText === '') {
       return
     }
-    console.log(query)
+    router.push(`/multi-search/${query}`)
   }
   return (
     <Form className={styles.form} inline>

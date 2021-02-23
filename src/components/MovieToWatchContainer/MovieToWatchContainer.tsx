@@ -27,7 +27,7 @@ function MovieToWatchContainer({
         {movieToWatch &&
           movieToWatch?.results?.map((item: MovieCardItems, index: number) => (
             <Card
-              url={url}
+              url={process.env.REACT_APP_MOVIE_DETAIL}
               id={item.id}
               releaseDate={item.release_date || item.first_air_date}
               originalTitle={item.original_title || item.original_name}
@@ -41,7 +41,7 @@ function MovieToWatchContainer({
           movieToWatchSSR?.results?.map(
             (item: MovieCardItems, index: number) => (
               <Card
-                // url={url}
+                url={process.env.REACT_APP_MOVIE_DETAIL}
                 id={item.id}
                 releaseDate={item.release_date || item.first_air_date}
                 originalTitle={item.original_title || item.original_name}

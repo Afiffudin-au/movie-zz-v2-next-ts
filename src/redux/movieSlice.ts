@@ -59,40 +59,10 @@ export const movieSlice = createSlice({
       state.tvToWatchBlocks.url = action.payload.url
       state.tvToWatchBlocks.tvToWatch = action.payload.datatvToWatch || [];
     },
-    addSearchResult : (state:{searchResultBlocks:SearchResultBlocksItems},action:{payload : SearchResultActionItems})=>{      
-      state.searchResultBlocks.loading  = action.payload.loading
-      state.searchResultBlocks.url  = action.payload.url
-      state.searchResultBlocks.totalPages = action.payload.dataMultiSearch?.total_pages || 0
-      if(action.payload.removeCopyArray){
-        state.searchResultBlocks.multiResults.length = 0
-      }
-      if(!action.payload.loading){
-        state.searchResultBlocks.multiResults = [
-          ...state.searchResultBlocks.multiResults,
-          action.payload.dataMultiSearch?.results || []]    
-      }
-    },
-    addUrlParams : (state:{urlParamsBlock:UrlParamsBlockItems},action:{payload : UrlParamsActionItems})=>{
-      state.urlParamsBlock.query = action.payload.query
-    },
-    addDetail : (state:{detailBlocks : DetailBlockItems},action:{payload : DetailBlockActionItems})=>{
-      state.detailBlocks.loading  = action.payload.loading
-      state.detailBlocks.details = action.payload.dataDetails || {}
-    },
-    addMovie : (state:{movieBlocks:MovieBlockItems},action:{payload:MovieBlockAction})=>{
-      state.movieBlocks.loading  = action.payload.loading
-      state.movieBlocks.url  = action.payload.url
-      state.movieBlocks.movies = action.payload.dataMovies || []
-    },
-    addTvShow : (state:{tvShowBlocks : TvShowBlockItems},action:{payload : TvShowBlockActionItems})=>{
-      state.tvShowBlocks.loading = action.payload.loading
-      state.tvShowBlocks.url = action.payload.url
-      state.tvShowBlocks.tvShows = action.payload.dataTvShows || []
-    }
   },
 });
 
-export const { addPopular ,addMovieToWatch,addTvToWatch,addSearchResult,addUrlParams,addDetail,addMovie,addTvShow} = movieSlice.actions;
+export const { addPopular ,addMovieToWatch,addTvToWatch} = movieSlice.actions;
 export const selectPopularBlocks = (state:{movies : StateMovieItems}) => state.movies.popularBlocks;
 export const selectMovieToWatchBlocks= (state:{movies : StateMovieItems})  => state.movies.movieToWatchBlocks;
 export const selectTvToWatchBlocks= (state:{movies : StateMovieItems})  => state.movies.tvToWatchBlocks;

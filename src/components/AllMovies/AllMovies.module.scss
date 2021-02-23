@@ -1,3 +1,4 @@
+@use '../../styles/root.scss';
 @mixin gridCol($value) {
   .allMovies {
     .allMoviesGrid {
@@ -10,8 +11,7 @@
   .title {
     margin-bottom: 10px;
     h1 {
-      font-weight: 600;
-      font-size: 25px;
+      @include root.gradientText;
     }
   }
   .allMoviesGrid {

@@ -4,7 +4,7 @@ import styles from './Navigation.module.scss'
 import Search from './Search/Search'
 import MenuIcon from '@material-ui/icons/Menu'
 import CloseIcon from '@material-ui/icons/Close'
-import { IconButton } from '@material-ui/core'
+import Link from 'next/link'
 function Navigation() {
   const [hamburgerIcon, setHamburgerIcon] = useState<boolean>(false)
   return (
@@ -30,25 +30,37 @@ function Navigation() {
             className={styles.dropDown}
             title='Movies'
             id='basic-nav-dropdown'>
-            <NavDropdown.Item href='#action/3.1'>Popular</NavDropdown.Item>
-            <NavDropdown.Item href='#action/3.2'>Now Playing</NavDropdown.Item>
-            <NavDropdown.Item href='#action/3.3'>UpComing</NavDropdown.Item>
-            <NavDropdown.Item href='#action/3.4'>Top Rated</NavDropdown.Item>
+            <NavDropdown.Item href='/movie/popular' className={styles.item}>
+              Popular
+            </NavDropdown.Item>
+            <NavDropdown.Item href='/movie/now_playing' className={styles.item}>
+              Now Playing
+            </NavDropdown.Item>
+            <NavDropdown.Item href='/movie/upcoming' className={styles.item}>
+              UpComing
+            </NavDropdown.Item>
+            <NavDropdown.Item href='/movie/top_rated' className={styles.item}>
+              Top Rated
+            </NavDropdown.Item>
           </NavDropdown>
           <NavDropdown
             className={styles.dropDown}
             title='Tv Shows'
             id='basic-nav-dropdown'>
-            <NavDropdown.Item href='#action/3.1'>Popular</NavDropdown.Item>
-            <NavDropdown.Item href='#action/3.2'>Airing Today</NavDropdown.Item>
-            <NavDropdown.Item href='#action/3.3'>Latest</NavDropdown.Item>
-            <NavDropdown.Item href='#action/3.4'>Top Rated</NavDropdown.Item>
+            <NavDropdown.Item href='/tv/popular'>Popular</NavDropdown.Item>
+            <NavDropdown.Item href='/tv/airing_today'>
+              Airing Today
+            </NavDropdown.Item>
+            <NavDropdown.Item href='/tv/on_the_air'>
+              On The Air
+            </NavDropdown.Item>
+            <NavDropdown.Item href='/tv/top_rated'>Top Rated</NavDropdown.Item>
           </NavDropdown>
           <NavDropdown
             className={styles.dropDown}
             title='People'
             id='basic-nav-dropdown'>
-            <NavDropdown.Item href='#action/3.1'>
+            <NavDropdown.Item href='/people/popular-people'>
               Popular People
             </NavDropdown.Item>
           </NavDropdown>

@@ -23,7 +23,7 @@ function TvToWatchContainer({ tvToWatchSSR }: { tvToWatchSSR: Required<any> }) {
         {tvToWatch &&
           tvToWatch?.results?.map((item: MovieCardItems, index: number) => (
             <Card
-              url={url}
+              url={process.env.REACT_APP_TV_DETAIL}
               id={item.id}
               releaseDate={item.release_date || item.first_air_date}
               originalTitle={item.original_title || item.original_name}
@@ -35,6 +35,7 @@ function TvToWatchContainer({ tvToWatchSSR }: { tvToWatchSSR: Required<any> }) {
         {tvToWatchSSR &&
           tvToWatchSSR?.results?.map((item: MovieCardItems, index: number) => (
             <Card
+              url={process.env.REACT_APP_TV_DETAIL}
               id={item.id}
               releaseDate={item.release_date || item.first_air_date}
               originalTitle={item.original_title || item.original_name}

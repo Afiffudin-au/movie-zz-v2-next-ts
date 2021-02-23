@@ -1,0 +1,14 @@
+.tvPage {
+  padding: 10px;
+  .pagenation {
+    margin: 10px auto;
+    nav {
+      * {
+        outline: 0;
+      }
+      ul {
+        justify-content: center;
+      }
+    }
+  }
+}

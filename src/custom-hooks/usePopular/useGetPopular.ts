@@ -28,31 +28,6 @@ export function useGetPopular(){
       alert(err)
     })
   }
-  const getTvPopular = ()=>{
-    dispatch(addPopular({
-      loading : true,
-      dataPopulars : [],
-      url : ''
-    }))
-    Axios({
-      method : 'GET',
-      url : `https://api.themoviedb.org/3/tv/popular?api_key=${process.env.API_KEY}`,
-      params: {page : 1}
-    }).then((res:any)=>{
-      dispatch(addPopular({
-        loading : false,
-        dataPopulars : res.data,
-        url : res.config.url
-      }))
-    }).catch(err=>{
-      dispatch(addPopular({
-        loading : false,
-        dataPopulars : [],
-        url : ''
-      }))
-      alert(err)
-    })
-  }
   const getMoviePopularInTheater = ()=>{
     dispatch(addPopular({
       loading : true,
@@ -80,7 +55,6 @@ export function useGetPopular(){
   }
   return{
     getMoviePopular,
-    getTvPopular,
     getMoviePopularInTheater
   }
 }

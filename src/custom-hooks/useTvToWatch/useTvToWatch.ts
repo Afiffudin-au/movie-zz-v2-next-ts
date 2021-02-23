@@ -28,6 +28,31 @@ export function useTvToWatch(){
       alert(err)
     })
   }
+  const getTvPopular = ()=>{
+    dispatch(addTvToWatch({
+      loading : true,
+      datatvToWatch : [],
+      url : ''
+    }))
+    Axios({
+      method : 'GET',
+      url : `https://api.themoviedb.org/3/tv/popular?api_key=${process.env.API_KEY}`,
+      params: {page : 1}
+    }).then((res:any)=>{
+      dispatch(addTvToWatch({
+        loading : false,
+        datatvToWatch : res.data,
+        url : res.config.url
+      }))
+    }).catch(err=>{
+      dispatch(addTvToWatch({
+        loading : false,
+        datatvToWatch : [],
+        url : ''
+      }))
+      alert(err)
+    })
+  }
   const getTvAiringToday = ()=>{
     dispatch(addTvToWatch({
       loading : true,
@@ -54,6 +79,6 @@ export function useTvToWatch(){
     })
   }
   return{
-    getTvTopRated,getTvAiringToday
+    getTvTopRated,getTvPopular,getTvAiringToday
   }
 }

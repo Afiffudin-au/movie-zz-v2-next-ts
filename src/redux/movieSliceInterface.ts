@@ -74,7 +74,7 @@ export interface MovieBlockItems{
 //addTvShow
 export interface TvShowBlockActionItems{
   dataTvShows : any
-  loading : boolean | null
+  loading : boolean
   url : string
 }
 export interface TvShowBlockItems{
@@ -84,14 +84,14 @@ export interface TvShowBlockItems{
 }
 //addSearchResult Section
 export interface SearchResultActionItems{
-  loading : boolean
-  url : string
-  removeCopyArray : boolean
-  dataMultiSearch : any
+  loading? : boolean | undefined
+  url? : string | undefined
+  removeCopyArray? : boolean | undefined
+  dataMultiSearch? : any | undefined
 }
 export interface SearchResultBlocksItems{
   multiResults : any
-  loading  : boolean | null
-  url : string
-  totalPages : number
+  loading  : boolean | null | undefined
+  url : string | undefined
+  totalPages : number | undefined
 }
