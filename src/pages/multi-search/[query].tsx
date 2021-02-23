@@ -53,7 +53,7 @@ function MovieSearch({ resultMovies }: any) {
         </GridLayout>
         <div className={styles.pagenation}>
           <Pagination
-            count={5}
+            count={2}
             page={pages}
             onChange={handleChange}
             className={classes.root}

@@ -37,16 +37,15 @@ function Card({
   return (
     <div className={styles.Card} style={styleProps}>
       <div onClick={handleDetail} className={styles.CardContent}>
-        <LightTooltip
-          enterDelay={10}
-          title={originalTitle || ''}
-          placement='top'
-          arrow>
-          <LazyLoad>
+        <LazyLoad>
+          <LightTooltip
+            enterDelay={10}
+            title={originalTitle || ''}
+            placement='top'
+            arrow>
             <img src={posterPath} alt={originalTitle} />
-          </LazyLoad>
-        </LightTooltip>
-
+          </LightTooltip>
+        </LazyLoad>
         <div className={styles.Card_desc}>
           <h1>{originalTitle}</h1>
           <p>{releaseDate}</p>

@@ -13,7 +13,6 @@ function DetailPage({ dataDetail }: any) {
           <div className={styles.detailPage__img}>
             <LazyLoad>
               <img
-                className='max-w-screen-xs rounded-lg'
                 src={`${process.env.REACT_APP_BIG_POSTER_URL}${dataDetail.poster_path}`}
                 alt=''
               />
@@ -45,7 +44,7 @@ function DetailPage({ dataDetail }: any) {
                 href={dataDetail.homepage}
                 target='_blank'
                 rel='noopener noreferrer'
-                className='watchButton'>
+                className={styles.watchButton}>
                 Watch Now
               </a>
             )}

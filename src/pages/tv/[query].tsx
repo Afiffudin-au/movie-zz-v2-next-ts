@@ -47,7 +47,7 @@ function TvPage({ tvShow }: any) {
         </GridLayout>
         <div className={styles.pagenation}>
           <Pagination
-            count={5}
+            count={40}
             page={pages}
             onChange={handleChange}
             className={classes.root}

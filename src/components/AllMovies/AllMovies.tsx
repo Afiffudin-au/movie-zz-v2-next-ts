@@ -11,7 +11,6 @@ import { makeStyles } from '@material-ui/core'
 function AllMovies() {
   const { getAllMovie, loading, dataMovies, url } = useGetAllMovie()
   const [pages, setPages] = useState<number>(1)
-  const { total_pages } = dataMovies
   const handleChange = (event: any, value: number) => {
     setPages(value)
     getAllMovie(value)
@@ -51,7 +50,7 @@ function AllMovies() {
       </div>
       <div className={styles.allMoviespagenation}>
         <Pagination
-          count={total_pages}
+          count={40}
           page={pages}
           onChange={handleChange}
           className={classes.root}

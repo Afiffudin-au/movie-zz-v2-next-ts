@@ -9,7 +9,6 @@ import { Pagination, PaginationItem } from '@material-ui/lab'
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 function MoviePage({ movies }: any) {
-  console.log(movies)
   const [pages, setPages] = useState<number>(1)
   const router = useRouter()
   const useStyles = makeStyles((theme: any) => ({
@@ -49,7 +48,7 @@ function MoviePage({ movies }: any) {
         </GridLayout>
         <div className={styles.pagenation}>
           <Pagination
-            count={5}
+            count={40}
             page={pages}
             onChange={handleChange}
             className={classes.root}
