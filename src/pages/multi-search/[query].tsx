@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core'
 import { Pagination } from '@material-ui/lab'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Card, { CardOption } from '../../components/Card/Card'
 import GridLayout from '../../components/GridLayout/GridLayout'
 import Navigation from '../../components/Navigation/Navigation'

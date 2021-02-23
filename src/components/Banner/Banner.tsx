@@ -1,13 +1,11 @@
 import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 import { Jumbotron } from 'react-bootstrap'
-import { addSearchResult } from '../../redux/movieSlice'
 import { useAppDispatch } from '../../store/store'
 import styles from './Banner.module.scss'
 function Banner() {
   const [searchQuery, setSearchQuery] = useState<string>('')
   const router = useRouter()
-  const dispatch = useAppDispatch()
   const handleSubmit = (e: any) => {
     e.preventDefault()
     const userText = searchQuery.replace(/^\s+/, '').replace(/\s+$/, '')

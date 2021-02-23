@@ -4,7 +4,6 @@ import styles from './Navigation.module.scss'
 import Search from './Search/Search'
 import MenuIcon from '@material-ui/icons/Menu'
 import CloseIcon from '@material-ui/icons/Close'
-import Link from 'next/link'
 function Navigation() {
   const [hamburgerIcon, setHamburgerIcon] = useState<boolean>(false)
   return (
