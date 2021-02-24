@@ -46,7 +46,11 @@ function Card({
       <div onClick={handleDetail} className={styles.CardContent}>
         {!imageLoad && (
           <SkeletonTheme color='#455a64' highlightColor='#78909c'>
-            <Skeleton count={1} height={150} width={100} duration={1.5} />
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+              <Skeleton count={1} height={150} width={100} duration={1.1} />
+              <Skeleton count={1} width={100} duration={1.1} />
+              <Skeleton count={1} width={100} duration={1.1} />
+            </div>
           </SkeletonTheme>
         )}
         <LazyLoad>
