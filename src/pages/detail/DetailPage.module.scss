@@ -79,6 +79,9 @@
   }
 }
 @media (max-width: 700px) {
+  .detailPage__img {
+    margin-bottom: 10px;
+  }
   .detailPage__content {
     flex-direction: column;
   }

@@ -1,7 +1,15 @@
 import React from 'react'
+import { useState } from 'react'
 import LazyLoad from 'react-lazyload'
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import styles from './DetailPage.module.scss'
 function DetailPage({ dataDetail }: any) {
+  const [imageLoad, setImageLoad] = useState<boolean>(false)
+  const [display, setDisplay] = useState<string>('none')
+  const handleImageLoad = () => {
+    setDisplay('block')
+    setImageLoad(true)
+  }
   return (
     <div
       className={styles.detailPage}
@@ -11,10 +19,19 @@ function DetailPage({ dataDetail }: any) {
       <div className={styles.detailPage__customBg}>
         <div className={styles.detailPage__content}>
           <div className={styles.detailPage__img}>
+            {!imageLoad && (
+              <SkeletonTheme color='#455a64' highlightColor='#78909c'>
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                  <Skeleton count={1} height={400} width={280} duration={1.1} />
+                </div>
+              </SkeletonTheme>
+            )}
             <LazyLoad>
               <img
+                style={{ display: display }}
                 src={`${process.env.REACT_APP_BIG_POSTER_URL}${dataDetail.poster_path}`}
-                alt=''
+                alt={dataDetail.title}
+                onLoad={handleImageLoad}
               />
             </LazyLoad>
           </div>
@@ -23,9 +40,7 @@ function DetailPage({ dataDetail }: any) {
             <div className={styles.detailPage__genre}>
               {dataDetail?.genres?.map(
                 (genre: { id: string; name: string }, index: number) => (
-                  <p key={genre.id} className='mr-2'>
-                    {genre.name}
-                  </p>
+                  <p key={genre.id}>{genre.name}</p>
                 )
               )}
             </div>
@@ -37,6 +52,12 @@ function DetailPage({ dataDetail }: any) {
             <p>
               {dataDetail.vote_average} of {dataDetail.vote_count} people
             </p>
+            <strong>Language</strong>
+            {dataDetail?.spoken_languages?.map(
+              (item: { name: string }, index: number) => (
+                <p key={index}>{item.name}</p>
+              )
+            )}
             <strong>Release Date</strong>
             <p>{dataDetail.release_date}</p>
             {dataDetail?.homepage && (
