@@ -8,10 +8,14 @@ import { StyledLinearProgress } from '../Mui-custom/LoadingProgress/LoadingProgr
 import { useGetAllMovie } from '../../custom-hooks/useAllMovie/useGetAllMovie'
 import { PaginationItem } from '@material-ui/lab'
 import { makeStyles } from '@material-ui/core'
+import GridLayout from '../GridLayout/GridLayout'
 function AllMovies() {
   const { getAllMovie, loading, dataMovies, url } = useGetAllMovie()
   const [pages, setPages] = useState<number>(1)
   const handleChange = (event: any, value: number) => {
+    const AllMovies: any = document.querySelector('.allMovies-dot')
+    console.log(AllMovies)
+    window.scrollTo(0, AllMovies?.offsetTop - 50)
     setPages(value)
     getAllMovie(value)
   }
@@ -28,12 +32,12 @@ function AllMovies() {
   }))
   const classes = useStyles()
   return (
-    <div className={styles.allMovies}>
+    <div className={`${styles.allMovies} allMovies-dot`}>
       {loading && <StyledLinearProgress />}
       <div className={styles.title}>
-        <h1>All movies to watch</h1>
+        <h1>movies to watch by populars</h1>
       </div>
-      <div className={styles.allMoviesGrid}>
+      <GridLayout>
         {dataMovies &&
           dataMovies?.results?.map((item: MovieCardItems, index: number) => (
             <MemoizedChildComponent
@@ -47,7 +51,7 @@ function AllMovies() {
               key={item.id}
             />
           ))}
-      </div>
+      </GridLayout>
       <div className={styles.allMoviespagenation}>
         <Pagination
           count={40}

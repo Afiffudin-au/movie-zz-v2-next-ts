@@ -8,8 +8,9 @@ interface CardPeopleOption {
   url: Required<string | undefined>
   image?: string
   id: Required<string>
+  role?: string
 }
-function CardPeople({ name, url, image, id }: CardPeopleOption) {
+function CardPeople({ name, url, image, id, role }: CardPeopleOption) {
   const [imageLoad, setImageLoad] = useState<boolean>(false)
   const [display, setDisplay] = useState<string>('none')
   const handleImageLoad = () => {
@@ -44,7 +45,8 @@ function CardPeople({ name, url, image, id }: CardPeopleOption) {
         </LazyLoad>
         {imageLoad && (
           <div className={styles.subTitle}>
-            <p>{name}</p>
+            <p className={styles.name}>{name}</p>
+            {role && <p className={styles.role}>{role}</p>}
           </div>
         )}
       </div>
