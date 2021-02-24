@@ -65,7 +65,6 @@ function MovieSearch({ resultMovies }: any) {
   )
 }
 function ChildComponent({
-  url,
   mediaType,
   styleProps,
   id,
@@ -76,7 +75,6 @@ function ChildComponent({
 }: Partial<CardOption>) {
   return (
     <Card
-      url={url}
       mediaType={mediaType}
       styleProps={styleProps}
       id={id}

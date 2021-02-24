@@ -31,7 +31,15 @@ function Card({
   const router = useRouter()
   const handleDetail = () => {
     const query = router.query
-    query.url = url
+    if (mediaType === 'movie') {
+      query.url = process.env.REACT_APP_MOVIE_DETAIL
+    }
+    if (mediaType === 'tv') {
+      query.url = process.env.REACT_APP_PEOPLE_DETAIL
+    }
+    if (url) {
+      query.url = url
+    }
     router.push({
       pathname: `/detail/${id}`,
       query: query,

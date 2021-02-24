@@ -23,7 +23,6 @@ function DetailPage({ dataDetail, dataPeople }: DetailPageProps) {
     setDisplay('block')
     setImageLoad(true)
   }
-  console.log(dataPeople)
   return (
     <div className={styles.detailPageRoot}>
       <div

@@ -31,6 +31,7 @@ function AllMovies() {
     },
   }))
   const classes = useStyles()
+  console.log(dataMovies)
   return (
     <div className={`${styles.allMovies} allMovies-dot`}>
       {loading && <StyledLinearProgress />}
