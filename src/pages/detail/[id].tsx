@@ -10,6 +10,7 @@ function DetailPage({ dataDetail }: any) {
     setDisplay('block')
     setImageLoad(true)
   }
+  console.log(dataDetail)
   return (
     <div
       className={styles.detailPage}

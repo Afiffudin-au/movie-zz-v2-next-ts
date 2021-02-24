@@ -1,0 +1,15 @@
+@use '../../styles/root.scss';
+.cardPeople {
+  cursor: pointer;
+  margin: 5px;
+  .image {
+    border-radius: 5px;
+  }
+  .subTitle {
+    padding: 5px;
+    p {
+      font-size: 15px;
+      @include root.gradientTextCard;
+    }
+  }
+}
