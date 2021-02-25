@@ -22,7 +22,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "src/pages/components/Navbar/NavbarTop.tsx"  ],
+, "src/pages/components/Navbar/NavbarTop.tsx", "src/components/Mui-custom/BreadCrums/BreadCrums.js"  ],
   "exclude": [
     "node_modules"
   ]

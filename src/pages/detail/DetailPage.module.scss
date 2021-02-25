@@ -1,6 +1,15 @@
 @use '../../styles/root.scss';
 .detailPageRoot {
-  .people {
+  .breadcrumb {
+    width: 100%;
+    background-color: #263238;
+    padding: 5px;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    @include root.customItemBreadcrumbs;
+  }
+  .combinedContent {
     background: rgb(36, 37, 37);
     background: linear-gradient(
       90deg,
@@ -89,12 +98,6 @@
         }
       }
     }
-  }
-}
-
-@media (min-width: 700px) {
-  .detailPage__customBg {
-    height: 100vh !important;
   }
 }
 @media (max-width: 700px) {

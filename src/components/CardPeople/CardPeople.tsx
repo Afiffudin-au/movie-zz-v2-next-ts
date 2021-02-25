@@ -23,8 +23,9 @@ function CardPeople({ name, url, image, id, role }: CardPeopleOption) {
         {!imageLoad && (
           <SkeletonTheme color='#455a64' highlightColor='#78909c'>
             <div style={{ display: 'flex', flexDirection: 'column' }}>
-              <Skeleton count={1} height={150} width={100} duration={1.1} />
-              <Skeleton count={1} width={100} duration={1.1} />
+              <Skeleton count={1} height={150} width={'100%'} duration={1.1} />
+              <Skeleton count={1} width={'100%'} duration={1.1} />
+              <Skeleton count={1} width={'100%'} duration={1.1} />
             </div>
           </SkeletonTheme>
         )}

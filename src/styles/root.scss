@@ -12,3 +12,15 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+@mixin customItemBreadcrumbs {
+  li,
+  a {
+    color: rgb(219, 219, 219);
+    font-weight: 400;
+    font-size: 15px;
+    cursor: pointer;
+    &:hover {
+      color: rgb(79, 126, 255);
+    }
+  }
+}

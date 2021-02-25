@@ -5,7 +5,8 @@
 }
 .gridLayout {
   margin-top: 5px;
-  grid-column-gap: 5px;
+  row-gap: 5px;
+  column-gap: 5px;
   display: grid;
 }
 @media (min-width: 320px) {

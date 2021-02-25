@@ -1,6 +1,6 @@
 .navbar {
   font-family: sans-serif;
-  padding: 10px;
+  padding: 1px;
   z-index: 2;
   background-color: #01579b !important;
   .toggle {
@@ -30,8 +30,7 @@
 }
 @media (min-width: 320px) and (max-width: 767.98px) {
   .navbar {
-    padding-top: 2px;
-    padding-bottom: 6px;
+    padding: 3px;
     .toggle {
       display: block;
     }

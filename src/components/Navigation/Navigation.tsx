@@ -4,10 +4,17 @@ import styles from './Navigation.module.scss'
 import Search from './Search/Search'
 import MenuIcon from '@material-ui/icons/Menu'
 import CloseIcon from '@material-ui/icons/Close'
+import HomeIcon from '@material-ui/icons/Home'
+import { IconButton } from '@material-ui/core'
 function Navigation() {
   const [hamburgerIcon, setHamburgerIcon] = useState<boolean>(false)
   return (
     <Navbar className={styles.navbar} bg='light' expand='md' sticky='top'>
+      <Navbar.Brand style={{ marginRight: '0' }} href='/'>
+        <IconButton>
+          <HomeIcon style={{ color: 'white' }} />
+        </IconButton>
+      </Navbar.Brand>
       <Navbar.Toggle className={styles.toggle} aria-controls='basic-navbar-nav'>
         {hamburgerIcon ? (
           <CloseIcon
