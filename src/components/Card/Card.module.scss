@@ -1,9 +1,7 @@
 @use '../../styles/root.scss';
 .Card {
   max-width: 150px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
   border-radius: 0.25rem;
   margin-right: 0.5rem;
   background-color: white;
