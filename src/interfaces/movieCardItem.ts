@@ -6,6 +6,6 @@ export interface MovieCardItems {
   original_name: string
   poster_path: string
   vote_average: number
-  media_type : any
-  backdrop_path : string
+  media_type: any
+  backdrop_path: string
 }

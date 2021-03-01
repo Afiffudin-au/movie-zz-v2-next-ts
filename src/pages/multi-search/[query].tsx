@@ -32,7 +32,7 @@ function MovieSearch({ resultMovies }: any) {
   const classes = useStyles()
   return (
     <>
-      <Navigation />
+      <Navigation homeBack={true} />
       <div className={styles.movieSearch}>
         <GridLayout>
           {resultMovies &&

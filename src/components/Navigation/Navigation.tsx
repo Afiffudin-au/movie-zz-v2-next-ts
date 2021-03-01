@@ -6,27 +6,28 @@ import MenuIcon from '@material-ui/icons/Menu'
 import CloseIcon from '@material-ui/icons/Close'
 import HomeIcon from '@material-ui/icons/Home'
 import { IconButton } from '@material-ui/core'
-function Navigation() {
+function Navigation({ homeBack }: { homeBack: Partial<boolean> }) {
   const [hamburgerIcon, setHamburgerIcon] = useState<boolean>(false)
   return (
     <Navbar className={styles.navbar} bg='light' expand='md' sticky='top'>
-      <Navbar.Brand style={{ marginRight: '0' }} href='/'>
-        <IconButton>
-          <HomeIcon style={{ color: 'white' }} />
-        </IconButton>
-      </Navbar.Brand>
+      {homeBack && (
+        <Navbar.Brand style={{ marginRight: '0' }} href='/'>
+          <IconButton style={{ padding: '0' }}>
+            <HomeIcon style={{ color: 'white' }} />
+          </IconButton>
+        </Navbar.Brand>
+      )}
+
       <Navbar.Toggle className={styles.toggle} aria-controls='basic-navbar-nav'>
         {hamburgerIcon ? (
           <CloseIcon
             onClick={() => setHamburgerIcon(!hamburgerIcon)}
             className={styles.closeIcon}
-            fontSize='large'
           />
         ) : (
           <MenuIcon
             onClick={() => setHamburgerIcon(!hamburgerIcon)}
             className={styles.hamburgerIcon}
-            fontSize='large'
           />
         )}
       </Navbar.Toggle>

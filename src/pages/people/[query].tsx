@@ -35,7 +35,7 @@ function PeoplePage({ peoples }: { peoples: Required<any> }) {
   }
   return (
     <>
-      <Navigation />
+      <Navigation homeBack={true} />
       <div className={styles.peoplePage}>
         <GridLayout>
           {peoples?.results?.map((item: PeopleItem, index: number) => (

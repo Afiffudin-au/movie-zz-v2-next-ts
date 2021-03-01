@@ -14,7 +14,6 @@ function AllMovies() {
   const [pages, setPages] = useState<number>(1)
   const handleChange = (event: any, value: number) => {
     const AllMovies: any = document.querySelector('.allMovies-dot')
-    console.log(AllMovies)
     window.scrollTo(0, AllMovies?.offsetTop - 50)
     setPages(value)
     getAllMovie(value)

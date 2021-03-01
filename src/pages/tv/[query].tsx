@@ -28,7 +28,7 @@ function TvPage({ tvShow }: any) {
   }
   return (
     <>
-      <Navigation />
+      <Navigation homeBack={true} />
       <div className={styles.tvPage}>
         <GridLayout>
           {tvShow?.results?.map((item: MovieCardItems, index: number) => (

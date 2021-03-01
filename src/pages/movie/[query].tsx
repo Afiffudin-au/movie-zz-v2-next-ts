@@ -29,7 +29,7 @@ function MoviePage({ movies }: any) {
   }
   return (
     <>
-      <Navigation />
+      <Navigation homeBack={true} />
       <div className={styles.moviePage}>
         <GridLayout>
           {movies?.results?.map((item: MovieCardItems, index: number) => (
