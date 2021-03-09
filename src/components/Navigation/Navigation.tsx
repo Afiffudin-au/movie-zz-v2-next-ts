@@ -6,7 +6,7 @@ import MenuIcon from '@material-ui/icons/Menu'
 import CloseIcon from '@material-ui/icons/Close'
 import HomeIcon from '@material-ui/icons/Home'
 import { IconButton } from '@material-ui/core'
-function Navigation({ homeBack }: { homeBack: Partial<boolean> }) {
+function Navigation({ homeBack }: { homeBack: boolean }) {
   const [hamburgerIcon, setHamburgerIcon] = useState<boolean>(false)
   return (
     <Navbar className={styles.navbar} bg='light' expand='md' sticky='top'>
