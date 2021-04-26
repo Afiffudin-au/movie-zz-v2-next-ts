@@ -51,8 +51,8 @@ function CardInlineFlex({
   return (
     <div className={styles.Card} style={styleProps}>
       <div onClick={handleDetail} className={styles.CardContent}>
+        {!imageLoad && <img src='/220x330.png' alt={originalTitle} />}
         <LazyLoad>
-          {!imageLoad && <img src='/220x330.png' alt={originalTitle} />}
           <LightTooltip
             enterDelay={10}
             title={originalTitle || ''}
