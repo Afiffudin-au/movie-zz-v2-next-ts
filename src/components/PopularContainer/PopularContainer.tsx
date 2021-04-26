@@ -1,11 +1,11 @@
 import React from 'react'
 import HorizontalContainer from '../HorizontalContainer/HorizontalContainer'
-import Card from '../Card/Card'
 import { MovieCardItems } from '../../interfaces/movieCardItem'
 import { selectPopularBlocks } from '../../redux/movieSlice'
 import { useSelector } from 'react-redux'
 import { PopularBlockItems } from '../../redux/movieSliceInterface'
 import { StyledLinearProgress } from '../Mui-custom/LoadingProgress/LoadingProgress'
+import CardInlineFlex from '../CardInlineFlex/CardInlineFlex'
 function PopularContainer({ popularsSSR }: { popularsSSR: Required<any> }) {
   const { url, loading, populars }: Partial<PopularBlockItems> = useSelector(
     selectPopularBlocks
@@ -20,7 +20,7 @@ function PopularContainer({ popularsSSR }: { popularsSSR: Required<any> }) {
       <HorizontalContainer>
         {populars &&
           populars?.results?.map((item: MovieCardItems, index: number) => (
-            <Card
+            <CardInlineFlex
               url={process.env.REACT_APP_MOVIE_DETAIL}
               id={item.id}
               releaseDate={item.release_date || item.first_air_date}
@@ -32,7 +32,7 @@ function PopularContainer({ popularsSSR }: { popularsSSR: Required<any> }) {
           ))}
         {popularsSSR &&
           popularsSSR?.results?.map((item: MovieCardItems, index: number) => (
-            <Card
+            <CardInlineFlex
               url={process.env.REACT_APP_MOVIE_DETAIL}
               id={item.id}
               releaseDate={item.release_date || item.first_air_date}

@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import { MovieCardItems } from '../../interfaces/movieCardItem'
 import { selectTvToWatchBlocks } from '../../redux/movieSlice'
 import { TvToWatchBlocksItems } from '../../redux/movieSliceInterface'
-import Card from '../Card/Card'
+import CardInlineFlex from '../CardInlineFlex/CardInlineFlex'
 import HorizontalContainer from '../HorizontalContainer/HorizontalContainer'
 import { StyledLinearProgress } from '../Mui-custom/LoadingProgress/LoadingProgress'
 function TvToWatchContainer({ tvToWatchSSR }: { tvToWatchSSR: Required<any> }) {
@@ -22,7 +22,7 @@ function TvToWatchContainer({ tvToWatchSSR }: { tvToWatchSSR: Required<any> }) {
       <HorizontalContainer>
         {tvToWatch &&
           tvToWatch?.results?.map((item: MovieCardItems, index: number) => (
-            <Card
+            <CardInlineFlex
               url={process.env.REACT_APP_TV_DETAIL}
               id={item.id}
               releaseDate={item.release_date || item.first_air_date}
@@ -34,7 +34,7 @@ function TvToWatchContainer({ tvToWatchSSR }: { tvToWatchSSR: Required<any> }) {
           ))}
         {tvToWatchSSR &&
           tvToWatchSSR?.results?.map((item: MovieCardItems, index: number) => (
-            <Card
+            <CardInlineFlex
               url={process.env.REACT_APP_TV_DETAIL}
               id={item.id}
               releaseDate={item.release_date || item.first_air_date}

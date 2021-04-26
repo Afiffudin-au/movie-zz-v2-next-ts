@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import Pagination from '@material-ui/lab/Pagination'
 import styles from './AllMovies.module.scss'
-import Card from '../Card/Card'
-import { CardOption } from '../Card/Card'
 import { MovieCardItems } from '../../interfaces/movieCardItem'
 import { StyledLinearProgress } from '../Mui-custom/LoadingProgress/LoadingProgress'
 import { useGetAllMovie } from '../../custom-hooks/useAllMovie/useGetAllMovie'
 import { PaginationItem } from '@material-ui/lab'
 import { makeStyles } from '@material-ui/core'
 import GridLayout from '../GridLayout/GridLayout'
+import Card, { CardOption } from '../Card/Card'
 function AllMovies() {
   const { getAllMovie, loading, dataMovies, url } = useGetAllMovie()
   const [pages, setPages] = useState<number>(1)
