@@ -8,31 +8,18 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import store from '../store/store'
 import '../styles/root.scss'
 import Router from 'next/router'
-import { StyledLinearProgress } from '../components/Mui-custom/LoadingProgress/LoadingProgress'
+import ProgressBar from '@badrap/bar-of-progress'
+const progress = new ProgressBar({
+  size: 4,
+  color: '#48e3e9',
+  className: 'z-50',
+  delay: 100,
+})
+// progress.start()
+Router.events.on('routeChangeStart', progress.start)
+Router.events.on('routeChangeComplete', progress.finish)
+Router.events.on('routeChangeError', progress.finish)
 function App({ Component, pageProps }: AppProps) {
-  const [loading, setLoading] = React.useState<boolean>(false)
-  React.useEffect(() => {
-    const jssStyles = document.querySelector('#jss-server-side')
-    if (jssStyles && jssStyles.parentNode) {
-      jssStyles.parentNode.removeChild(jssStyles)
-    }
-  }, [])
-  React.useEffect(() => {
-    const start = () => {
-      setLoading(true)
-    }
-    const end = () => {
-      setLoading(false)
-    }
-    Router.events.on('routeChangeStart', start)
-    Router.events.on('routeChangeComplete', end)
-    Router.events.on('routeChangeError', end)
-    return () => {
-      Router.events.off('routeChangeStart', start)
-      Router.events.off('routeChangeComplete', end)
-      Router.events.off('routeChangeError', end)
-    }
-  }, [])
   return (
     <Provider store={store}>
       <Head>
@@ -42,17 +29,6 @@ function App({ Component, pageProps }: AppProps) {
         />
         <meta name='Description' content='movie-zz provides movies' />
       </Head>
-      {loading && (
-        <StyledLinearProgress
-          style={{
-            position: 'fixed',
-            top: '0',
-            left: '0',
-            right: '0',
-            zIndex: 5,
-          }}
-        />
-      )}
       <Component {...pageProps} />
     </Provider>
   )
