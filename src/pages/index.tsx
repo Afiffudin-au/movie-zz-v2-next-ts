@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import { hostname } from 'os'
 import React from 'react'
 import AllMovies from '../components/AllMovies/AllMovies'
 import Banner from '../components/Banner/Banner'
@@ -46,9 +45,6 @@ export default function Home({ populars, movieToWatch, tvToWatch }: any) {
   )
 }
 export async function getStaticProps() {
-  if (typeof window !== 'undefined') {
-    const hostname = window.location.hostname
-  }
   const [populars, movieToWatch, tvToWatch] = await Promise.all([
     fetch(
       `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}&page=1`
@@ -60,7 +56,6 @@ export async function getStaticProps() {
       `https://api.themoviedb.org/3/tv/top_rated?api_key=${process.env.API_KEY}&page=1`
     ),
   ])
-  console.log(hostname)
   return {
     props: {
       populars: await populars.json(),
