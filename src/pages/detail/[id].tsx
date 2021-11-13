@@ -10,11 +10,13 @@ import { MovieCardItems } from '../../interfaces/movieCardItem'
 import { useRouter } from 'next/router'
 import Breadcrumbs from '@material-ui/core/Breadcrumbs'
 import Link from '@material-ui/core/Link'
+import Head from 'next/head'
 interface DetailPageProps {
   dataDetail: Required<any>
   dataPeople: Required<any>
   similars: Required<any>
   dataVideos: Required<any>
+  id: Required<any>
 }
 interface PeopleCastItem {
   name: string
@@ -23,7 +25,7 @@ interface PeopleCastItem {
   job: string
   character: string
 }
-function DetailPage({ dataDetail, dataPeople, similars }: DetailPageProps) {
+function DetailPage({ dataDetail, dataPeople, similars, id }: DetailPageProps) {
   const router = useRouter()
   const { dataSimilar, mediaType } = similars
   const [imageLoad, setImageLoad] = useState<boolean>(false)
@@ -45,6 +47,33 @@ function DetailPage({ dataDetail, dataPeople, similars }: DetailPageProps) {
   }
   return (
     <div className={styles.detailPageRoot}>
+      <Head>
+        <title>Movie Detail</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1' />
+        <meta
+          name='description'
+          content='Movie-zz provides details of various movies, tv, and peoples from around the world'
+        />
+        <meta
+          property='og:title'
+          content='Awesome movies, tv, and peoples - MovieZzNextTs'
+        />
+        <meta
+          property='og:url'
+          content={`${process.env.BASE_PATH}/detail/${id}`}
+        />
+        <meta property='og:site_name' content='MovieZzNextTs' />
+        <meta
+          property='og:image'
+          content={`${process.env.REACT_APP_BIG_POSTER_URL}${dataDetail.poster_path}`}
+        />
+        <meta property='og:image:alt' content='image poster' />
+        <meta property='og:type' content='website' />
+        <meta
+          name='og:description'
+          content='Movie-zz provides details of various movies, tv, and peoples from around the world'
+        />
+      </Head>
       <div className={styles.breadcrumb}>
         <Breadcrumbs aria-label='breadcrumb'>
           <Link onClick={handleClick}>Home</Link>
@@ -72,14 +101,13 @@ function DetailPage({ dataDetail, dataPeople, similars }: DetailPageProps) {
                   </div>
                 </SkeletonTheme>
               )}
-              <LazyLoad>
-                <img
-                  style={{ display: display }}
-                  src={`${process.env.REACT_APP_BIG_POSTER_URL}${dataDetail.poster_path}`}
-                  alt={dataDetail.title}
-                  onLoad={handleImageLoad}
-                />
-              </LazyLoad>
+
+              <img
+                style={{ display: display }}
+                src={`${process.env.REACT_APP_BIG_POSTER_URL}${dataDetail.poster_path}`}
+                alt={dataDetail.title}
+                onLoad={handleImageLoad}
+              />
             </div>
             <div className={styles.detailPage__contentText}>
               <h1>{dataDetail.title}</h1>
@@ -202,6 +230,7 @@ export const getServerSideProps = async (context: any) => {
       dataDetail,
       dataPeople,
       similars,
+      id,
     },
   }
 }

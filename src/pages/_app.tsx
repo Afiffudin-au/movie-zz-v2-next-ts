@@ -2,7 +2,6 @@ import { AppProps } from 'next/app'
 import React from 'react'
 import '../styles/globals.css'
 import 'react-grid-layout/css/styles.css'
-import Head from 'next/head'
 import { Provider } from 'react-redux'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import store from '../store/store'
@@ -22,13 +21,6 @@ Router.events.on('routeChangeError', progress.finish)
 function App({ Component, pageProps }: AppProps) {
   return (
     <Provider store={store}>
-      <Head>
-        <meta
-          name='viewport'
-          content='width=device-width, initial-scale=1, shrink-to-fit=no'
-        />
-        <meta name='Description' content='movie-zz provides movies' />
-      </Head>
       <Component {...pageProps} />
     </Provider>
   )

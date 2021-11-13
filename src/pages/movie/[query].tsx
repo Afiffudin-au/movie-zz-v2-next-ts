@@ -8,7 +8,8 @@ import { makeStyles } from '@material-ui/core'
 import { Pagination, PaginationItem } from '@material-ui/lab'
 import { useState } from 'react'
 import { useRouter } from 'next/router'
-function MoviePage({ movies }: any) {
+import Head from 'next/head'
+function MoviePage({ movies, queryPath }: any) {
   const [pages, setPages] = useState<number>(1)
   const router = useRouter()
   const useStyles = makeStyles((theme: any) => ({
@@ -29,6 +30,35 @@ function MoviePage({ movies }: any) {
   }
   return (
     <>
+      <Head>
+        <title>Movie {queryPath}</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1' />
+        <meta
+          name='description'
+          content='Movie-zz provides various movies, tv and peoples from all over the world'
+        />
+        <meta
+          property='og:title'
+          content='Awesome movies, tv, and peoples - MovieZzNextTs'
+        />
+        <meta
+          property='og:url'
+          content={`${process.env.BASE_PATH}/movie/${queryPath}`}
+        />
+        <meta property='og:site_name' content='MovieZzNextTs' />
+        <meta
+          property='og:image'
+          content={
+            process.env.REACT_APP_POSTER_URL2 + movies.results[0].poster_path
+          }
+        />
+        <meta property='og:image:alt' content='image poster' />
+        <meta property='og:type' content='website' />
+        <meta
+          name='og:description'
+          content='Movie-zz provides various movies, tv and peoples from all over the world'
+        />
+      </Head>
       <Navigation homeBack={true} />
       <div className={styles.moviePage}>
         <GridLayout>
@@ -62,6 +92,7 @@ function MoviePage({ movies }: any) {
 export const getServerSideProps = async (context: any) => {
   const { params } = context
   const page = context.query.page || 1
+  const queryPath = params.query
   const res = await fetch(
     `https://api.themoviedb.org/3/movie/${params.query}?api_key=${process.env.API_KEY}&page=${page}`
   )
@@ -69,6 +100,7 @@ export const getServerSideProps = async (context: any) => {
   return {
     props: {
       movies,
+      queryPath,
     },
   }
 }

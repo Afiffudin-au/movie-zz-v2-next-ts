@@ -6,6 +6,7 @@ import CardPeople from '../../components/CardPeople/CardPeople'
 import GridLayout from '../../components/GridLayout/GridLayout'
 import Navigation from '../../components/Navigation/Navigation'
 import styles from './PeoplePage.module.scss'
+import Head from 'next/head'
 interface PeopleItem {
   name: string
   profile_path: string
@@ -35,6 +36,35 @@ function PeoplePage({ peoples }: { peoples: Required<any> }) {
   }
   return (
     <>
+      <Head>
+        <title>Popular Peoples</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1' />
+        <meta
+          name='description'
+          content='Movie-zz provides various peoples from all over the world'
+        />
+        <meta
+          property='og:title'
+          content='Awesome movies, tv, and peoples - MovieZzNextTs'
+        />
+        <meta
+          property='og:url'
+          content={`${process.env.BASE_PATH}/people/popular`}
+        />
+        <meta property='og:site_name' content='MovieZzNextTs' />
+        <meta
+          property='og:image'
+          content={
+            process.env.REACT_APP_POSTER_URL2 + peoples.results[0].profile_path
+          }
+        />
+        <meta property='og:image:alt' content='image poster' />
+        <meta property='og:type' content='website' />
+        <meta
+          name='og:description'
+          content='Movie-zz provides various peoples from all over the world'
+        />
+      </Head>
       <Navigation homeBack={true} />
       <div className={styles.peoplePage}>
         <GridLayout>

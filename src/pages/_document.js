@@ -36,7 +36,7 @@ class CustomDocument extends Document {
       <Html lang='en'>
         <Head>
           <meta property='og:locale' content='en_US' />
-          <meta property='og:site_name' content='NAME OF YOUR WEBSITE HERE' />
+          <meta property='og:site_name' content='MovieZzNextTs' />
           <meta name='theme-color' content='#000000' />
           <meta name='msapplication-TileColor' content='#000000' />
           <meta name='msapplication-navbutton-color' content='#000000' />

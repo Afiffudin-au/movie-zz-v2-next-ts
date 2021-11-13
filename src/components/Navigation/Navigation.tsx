@@ -6,16 +6,17 @@ import MenuIcon from '@material-ui/icons/Menu'
 import CloseIcon from '@material-ui/icons/Close'
 import HomeIcon from '@material-ui/icons/Home'
 import { IconButton } from '@material-ui/core'
+import Link from 'next/link'
 function Navigation({ homeBack }: { homeBack?: boolean }) {
   const [hamburgerIcon, setHamburgerIcon] = useState<boolean>(false)
   return (
     <Navbar className={styles.navbar} bg='light' expand='md' sticky='top'>
       {homeBack && (
-        <Navbar.Brand style={{ marginRight: '0' }} href='/'>
+        <Link href='/'>
           <IconButton style={{ padding: '0' }}>
             <HomeIcon style={{ color: 'white' }} />
           </IconButton>
-        </Navbar.Brand>
+        </Link>
       )}
 
       <Navbar.Toggle className={styles.toggle} aria-controls='basic-navbar-nav'>
@@ -37,39 +38,67 @@ function Navigation({ homeBack }: { homeBack?: boolean }) {
             className={styles.dropDown}
             title='Movies'
             id='basic-nav-dropdown'>
-            <NavDropdown.Item href='/movie/popular' className={styles.item}>
-              Popular
-            </NavDropdown.Item>
-            <NavDropdown.Item href='/movie/now_playing' className={styles.item}>
-              Now Playing
-            </NavDropdown.Item>
-            <NavDropdown.Item href='/movie/upcoming' className={styles.item}>
-              UpComing
-            </NavDropdown.Item>
-            <NavDropdown.Item href='/movie/top_rated' className={styles.item}>
-              Top Rated
-            </NavDropdown.Item>
+            <div>
+              <div className={styles.navItem}>
+                <Link href='/movie/popular'>
+                  <a>Popular</a>
+                </Link>
+              </div>
+              <div className={styles.navItem}>
+                <Link href='/movie/now_playing'>
+                  <a> Now Playing</a>
+                </Link>
+              </div>
+              <div className={styles.navItem}>
+                <Link href='/movie/upcoming'>
+                  <a>UpComing</a>
+                </Link>
+              </div>
+              <div className={styles.navItem}>
+                <Link href='/movie/top_rated'>
+                  <a>Top Rated</a>
+                </Link>
+              </div>
+            </div>
           </NavDropdown>
           <NavDropdown
             className={styles.dropDown}
             title='Tv Shows'
             id='basic-nav-dropdown'>
-            <NavDropdown.Item href='/tv/popular'>Popular</NavDropdown.Item>
-            <NavDropdown.Item href='/tv/airing_today'>
-              Airing Today
-            </NavDropdown.Item>
-            <NavDropdown.Item href='/tv/on_the_air'>
-              On The Air
-            </NavDropdown.Item>
-            <NavDropdown.Item href='/tv/top_rated'>Top Rated</NavDropdown.Item>
+            <div>
+              <div className={styles.navItem}>
+                <Link href='/tv/popular'>
+                  <a>Popular</a>
+                </Link>
+              </div>
+              <div className={styles.navItem}>
+                <Link href='/tv/airing_today'>
+                  <a>Airing Today</a>
+                </Link>
+              </div>
+              <div className={styles.navItem}>
+                <Link href='/tv/on_the_air'>
+                  <a>On The Air</a>
+                </Link>
+              </div>
+              <div className={styles.navItem}>
+                <Link href='/tv/top_ratedr'>
+                  <a>Top Rated</a>
+                </Link>
+              </div>
+            </div>
           </NavDropdown>
           <NavDropdown
             className={styles.dropDown}
             title='People'
             id='basic-nav-dropdown'>
-            <NavDropdown.Item href='/people/popular-people'>
-              Popular People
-            </NavDropdown.Item>
+            <div>
+              <div className={styles.navItem}>
+                <Link href='/people/popular-people'>
+                  <a>Popular</a>
+                </Link>
+              </div>
+            </div>
           </NavDropdown>
         </Nav>
         <Search />

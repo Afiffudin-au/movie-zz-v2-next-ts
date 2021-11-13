@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import { hostname } from 'os'
 import React from 'react'
 import AllMovies from '../components/AllMovies/AllMovies'
 import Banner from '../components/Banner/Banner'
@@ -11,7 +12,29 @@ export default function Home({ populars, movieToWatch, tvToWatch }: any) {
     <div className='home'>
       <Head>
         <title>Movie-zz-v2-next-ts</title>
-        <link rel='icon' href='/favicon.ico' />
+        <meta name='viewport' content='width=device-width, initial-scale=1' />
+        <meta
+          name='description'
+          content='Movie-zz provides various movies, tv and peoples from all over the world'
+        />
+        <meta
+          property='og:title'
+          content='Awesome movies, tv, and peoples - MovieZzNextTs'
+        />
+        <meta property='og:url' content={process.env.BASE_PATH} />
+        <meta property='og:site_name' content='MovieZzNextTs' />
+        <meta
+          property='og:image'
+          content={
+            process.env.REACT_APP_POSTER_URL2 + populars.results[0].poster_path
+          }
+        />
+        <meta property='og:image:alt' content='image poster' />
+        <meta property='og:type' content='website' />
+        <meta
+          name='og:description'
+          content='Movie-zz provides various movies, tv and peoples from all over the world'
+        />
       </Head>
       <Navigation />
       <Banner />
@@ -23,6 +46,9 @@ export default function Home({ populars, movieToWatch, tvToWatch }: any) {
   )
 }
 export async function getStaticProps() {
+  if (typeof window !== 'undefined') {
+    const hostname = window.location.hostname
+  }
   const [populars, movieToWatch, tvToWatch] = await Promise.all([
     fetch(
       `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}&page=1`
@@ -34,6 +60,7 @@ export async function getStaticProps() {
       `https://api.themoviedb.org/3/tv/top_rated?api_key=${process.env.API_KEY}&page=1`
     ),
   ])
+  console.log(hostname)
   return {
     props: {
       populars: await populars.json(),
