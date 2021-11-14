@@ -3,8 +3,8 @@ import StarRateIcon from '@material-ui/icons/StarRate'
 import { amber } from '@material-ui/core/colors'
 import styles from './CardInlineFlex.module.scss'
 import { LightTooltip } from '../Mui-custom/LightTooltip/LightTooltip'
-import LazyLoad from 'react-lazyload'
 import { useRouter } from 'next/router'
+import Image from 'next/image'
 export interface CardOption {
   url?: string
   mediaType?: string
@@ -26,7 +26,6 @@ function CardInlineFlex({
   voteAverage,
 }: CardOption) {
   const [imageLoad, setImageLoad] = useState<boolean>(false)
-  const [display, setDisplay] = useState<string>('none')
   const router = useRouter()
   const handleDetail = () => {
     const query = router.query
@@ -44,28 +43,28 @@ function CardInlineFlex({
       query: query,
     })
   }
-  const handleImageLoad = () => {
-    setDisplay('block')
-    setImageLoad(true)
-  }
   return (
     <div className={styles.Card} style={styleProps}>
       <div onClick={handleDetail} className={styles.CardContent}>
-        {!imageLoad && <img src='/220x330.png' alt={originalTitle} />}
-        <LazyLoad>
-          <LightTooltip
-            enterDelay={10}
-            title={originalTitle || ''}
-            placement='top'
-            arrow>
-            <img
-              style={{ display: display }}
+        <LightTooltip
+          enterDelay={10}
+          title={originalTitle || ''}
+          placement='top'
+          arrow>
+          <div>
+            <Image
               src={posterPath}
               alt={originalTitle}
-              onLoad={handleImageLoad}
+              width={220}
+              height={330}
+              objectFit='fill'
+              quality={100}
+              placeholder='blur'
+              blurDataURL='/220x330.png'
             />
-          </LightTooltip>
-        </LazyLoad>
+          </div>
+        </LightTooltip>
+
         <div className={styles.Card_desc}>
           <h1>{originalTitle}</h1>
           <p>{releaseDate}</p>

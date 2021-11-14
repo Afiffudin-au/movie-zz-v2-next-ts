@@ -18,8 +18,6 @@
     img {
       border-top-left-radius: 0.5rem;
       border-top-right-radius: 0.5rem;
-      object-fit: fill;
-      width: 100%;
     }
     .Card_desc {
       padding: 0.5rem;
@@ -28,9 +26,6 @@
         font-size: 16px;
         word-wrap: break-word;
         @include root.gradientTextCard;
-        // text-overflow: ellipsis;
-        // white-space: nowrap;
-        // overflow: hidden;
       }
       p {
         font-size: 14px;
@@ -48,6 +43,7 @@
       display: flex;
       color: white;
       align-items: center;
+      padding-right: 5px;
     }
   }
 }

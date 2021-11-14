@@ -1,11 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 import StarRateIcon from '@material-ui/icons/StarRate'
 import { amber } from '@material-ui/core/colors'
 import styles from './Card.module.scss'
 import { LightTooltip } from '../Mui-custom/LightTooltip/LightTooltip'
-import LazyLoad from 'react-lazyload'
 import { useRouter } from 'next/router'
-import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
+import Image from 'next/image'
 export interface CardOption {
   url?: string
   mediaType?: string
@@ -26,8 +25,6 @@ function Card({
   posterPath,
   voteAverage,
 }: CardOption) {
-  const [imageLoad, setImageLoad] = useState<boolean>(false)
-  const [display, setDisplay] = useState<string>('none')
   const router = useRouter()
   const handleDetail = () => {
     const query = router.query
@@ -45,48 +42,35 @@ function Card({
       query: query,
     })
   }
-  const handleImageLoad = () => {
-    setDisplay('block')
-    setImageLoad(true)
-  }
   return (
     <div className={styles.Card} style={styleProps}>
       <div onClick={handleDetail} className={styles.CardContent}>
-        {!imageLoad && (
-          <SkeletonTheme color='#455a64' highlightColor='#78909c'>
-            <div style={{ display: 'flex', flexDirection: 'column' }}>
-              <Skeleton count={1} height={150} width={100} duration={1.1} />
-              <Skeleton count={1} width={100} duration={1.1} />
-              <Skeleton count={1} width={100} duration={1.1} />
-            </div>
-          </SkeletonTheme>
-        )}
-        <LazyLoad>
-          <LightTooltip
-            enterDelay={10}
-            title={originalTitle || ''}
-            placement='top'
-            arrow>
-            <img
-              style={{ display: display }}
+        <LightTooltip
+          enterDelay={10}
+          title={originalTitle || ''}
+          placement='top'
+          arrow>
+          <div>
+            <Image
               src={posterPath}
               alt={originalTitle}
-              onLoad={handleImageLoad}
+              height={150}
+              width={100}
+              objectFit='fill'
+              placeholder='blur'
+              blurDataURL='/150x100.png'
+              quality={100}
             />
-          </LightTooltip>
-        </LazyLoad>
-        {imageLoad && (
-          <>
-            <div className={styles.Card_desc}>
-              <h1>{originalTitle}</h1>
-              <p>{releaseDate}</p>
-            </div>
-            <div className={styles.CardStarRate}>
-              <StarRateIcon style={{ color: amber[600] }} />
-              <span>{voteAverage}</span>
-            </div>
-          </>
-        )}
+          </div>
+        </LightTooltip>
+        <div className={styles.Card_desc}>
+          <h1>{originalTitle}</h1>
+          <p>{releaseDate}</p>
+        </div>
+        <div className={styles.CardStarRate}>
+          <StarRateIcon style={{ color: amber[600] }} />
+          <span>{voteAverage}</span>
+        </div>
       </div>
     </div>
   )

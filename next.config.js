@@ -29,6 +29,6 @@ module.exports = {
     REACT_APP_TV_DETAIL: 'https://api.themoviedb.org/3/tv/',
   },
   images: {
-    domains: ['image.tmdb.org', 'images.pexels.com'],
+    domains: ['image.tmdb.org', 'images.pexels.com', 'www.themoviedb.org'],
   },
 }
