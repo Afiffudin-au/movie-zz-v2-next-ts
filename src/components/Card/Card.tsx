@@ -13,7 +13,7 @@ export interface CardOption {
   releaseDate?: any
   originalTitle?: string
   posterPath?: any
-  voteAverage?: number | string
+  voteAverage?: number
 }
 function Card({
   url,
@@ -69,7 +69,7 @@ function Card({
         </div>
         <div className={styles.CardStarRate}>
           <StarRateIcon style={{ color: amber[600] }} />
-          <span>{voteAverage}</span>
+          <span>{voteAverage?.toFixed(1)}</span>
         </div>
       </div>
     </div>

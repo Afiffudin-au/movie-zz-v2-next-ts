@@ -1,6 +1,5 @@
 import React from 'react'
 import { useState } from 'react'
-import LazyLoad from 'react-lazyload'
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import Card from '../../components/Card/Card'
 import CardPeople from '../../components/CardPeople/CardPeople'
@@ -11,6 +10,7 @@ import { useRouter } from 'next/router'
 import Breadcrumbs from '@material-ui/core/Breadcrumbs'
 import Link from '@material-ui/core/Link'
 import Head from 'next/head'
+import Navigation from '../../components/Navigation/Navigation'
 interface DetailPageProps {
   dataDetail: Required<any>
   dataPeople: Required<any>
@@ -74,6 +74,7 @@ function DetailPage({ dataDetail, dataPeople, similars, id }: DetailPageProps) {
           content='Movie-zz provides details of various movies, tv, and peoples from around the world'
         />
       </Head>
+      <Navigation />
       <div className={styles.breadcrumb}>
         <Breadcrumbs aria-label='breadcrumb'>
           <Link onClick={handleClick}>Home</Link>

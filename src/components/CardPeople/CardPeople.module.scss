@@ -2,14 +2,22 @@
 .cardPeople {
   cursor: pointer;
   margin: 5px;
+  height: 100%;
+  width: 100%;
   img {
     border-radius: 5px;
   }
   .subTitle {
     padding: 5px;
     p {
-      font-size: 15px;
+      font-size: 16px;
+      font-weight: 500;
       @include root.gradientTextCard;
+      overflow: hidden !important;
+      text-overflow: ellipsis;
+      display: inline-block;
+      width: 100px;
+      white-space: nowrap;
     }
     .role {
       border-top: 1px solid rgb(0, 0, 0);

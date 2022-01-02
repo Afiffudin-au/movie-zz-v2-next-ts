@@ -2,11 +2,17 @@
   font-family: sans-serif;
   padding: 10px;
   z-index: 2;
-  background-color: #01579b !important;
+  background: rgb(25, 118, 210);
+  background: linear-gradient(
+    90deg,
+    rgba(25, 118, 210, 1) 23%,
+    rgba(33, 150, 243, 1) 68%
+  );
   .toggle {
     padding: 0;
     border: none;
     display: none;
+    margin-left: auto;
     .closeIcon {
       color: white;
     }
