@@ -1,3 +1,9 @@
+## Desc
+Hi all! this is a project called "movie". This application contains popular movies, movies worth watching, tv shows, popular movies, details and much more. These are all taken from themoviedb.org API. this application has a very light and fast performance, equipped with multi search features, and a very simple UI display. This app is made with Nextjs Typescript and redux. Most of my projects are of the private type, but for now and so on I will make my projects public freely.
+
+## Desc indonesia
+hai semuanya! ini adalah proyek yang bernama "movie". Aplikasi ini berisikan film popular, film yang layak ditonton, acara tv, film popular, detail dan masih banyak lagi. Semua ini di ambil dari API themoviedb.org. aplikasi ini memiliki performa sangat ringan dan cepat, dilengkapi dengan fitur pencarian multi, dan tampilan UI yang sangat sederhana. Aplikasi ini dibuat dengan Nextjs Typescript dan redux. Kebanyak proyek saya adalah tipe pribadi, tapi untuk sekarang dan seterusnya proyek saya akan saya publik secara bebas.
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
