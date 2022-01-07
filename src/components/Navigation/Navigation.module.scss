@@ -8,6 +8,15 @@
     rgba(25, 118, 210, 1) 23%,
     rgba(33, 150, 243, 1) 68%
   );
+  .customBrand {
+    letter-spacing: 2px;
+    background: -webkit-linear-gradient(126deg, #2199ff, #76ff6e 80%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 600;
+    font-size: 25px;
+  }
   .toggle {
     padding: 0;
     border: none;
@@ -51,6 +60,9 @@
   .navbar {
     .toggle {
       display: block;
+    }
+    .customBrand {
+      font-size: 20px;
     }
   }
 }

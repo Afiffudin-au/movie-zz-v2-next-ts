@@ -11,14 +11,11 @@ function Navigation({ homeBack }: { homeBack?: boolean }) {
   const [hamburgerIcon, setHamburgerIcon] = useState<boolean>(false)
   return (
     <Navbar className={styles.navbar} bg='light' expand='md' sticky='top'>
-      {homeBack && (
+      <Navbar.Brand>
         <Link href='/'>
-          <IconButton style={{ padding: '0' }}>
-            <HomeIcon style={{ color: 'white' }} />
-          </IconButton>
+          <a className={styles.customBrand}>MZ</a>
         </Link>
-      )}
-
+      </Navbar.Brand>
       <Navbar.Toggle className={styles.toggle} aria-controls='basic-navbar-nav'>
         {hamburgerIcon ? (
           <CloseIcon

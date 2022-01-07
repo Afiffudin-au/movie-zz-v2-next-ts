@@ -81,7 +81,6 @@ function DetailPage({ dataDetail, dataPeople, similars, id }: DetailPageProps) {
           <Link onClick={handleClick}>Detail</Link>
         </Breadcrumbs>
       </div>
-
       <div
         className={styles.detailPage}
         style={{
