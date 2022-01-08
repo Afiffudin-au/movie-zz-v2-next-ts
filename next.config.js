@@ -1,7 +1,7 @@
 module.exports = {
   env: {
     API_KEY: 'f59a67c847f06eb38cff7065821c1fd9',
-    BASE_PATH: 'https://movies-zz-v2-next.vercel.app',
+    BASE_PATH: 'https://movie.tosulafiffudin.com',
     REACT_APP_POSTER_URL: 'https://www.themoviedb.org/t/p/w220_and_h330_face',
     REACT_APP_POSTER_URL2: 'https://www.themoviedb.org/t/p/w220_and_h330_face',
     REACT_APP_POSTER_URL_2ND: 'https://image.tmdb.org/t/p/original',
