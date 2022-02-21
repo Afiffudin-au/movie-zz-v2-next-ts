@@ -5,7 +5,7 @@ import TheatersIcon from '@material-ui/icons/Theaters'
 import styles from './PopularGroup.module.scss'
 import PopularContainer from '../PopularContainer/PopularContainer'
 import { BottomNavigationStyled } from '../Mui-custom/BottomNavigation/BottomNavigation'
-import { useGetPopular } from '../../custom-hooks/usePopular/useGetPopular'
+import useGetPopular from '../../custom-hooks/usePopular/useGetPopular'
 function PopularGroup({ popularsSSR }: { popularsSSR: any }) {
   const [data, setData] = useState<any>(popularsSSR)
   const [value, setValue] = useState<number>(0)

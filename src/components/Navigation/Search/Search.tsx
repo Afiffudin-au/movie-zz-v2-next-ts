@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Form, FormControl } from 'react-bootstrap'
 import styles from './Search.module.scss'
 import { useRouter } from 'next/router'
-import { useAppDispatch } from '../../../store/store'
+import AutoSearch from '../../AutoSearch/AutoSearch'
 function Search() {
   const router = useRouter()
   const [query, setQuery] = useState<string>('')
@@ -15,15 +15,22 @@ function Search() {
     router.push(`/multi-search/${query}`)
   }
   return (
-    <Form className={styles.form} inline>
-      <FormControl
-        className={`mr-sm-2 ${styles.inputControl}`}
-        type='text'
-        placeholder='Search'
-        onChange={(e) => setQuery(e.target.value)}
-      />
-      <button onClick={handleSearch} style={{ display: 'none' }} />
-    </Form>
+    <>
+      <Form className={styles.form}>
+        <div>
+          <FormControl
+            className={`mr-sm-2 ${styles.inputControl}`}
+            type='text'
+            placeholder='Search'
+            onChange={(e) => setQuery(e.target.value)}
+          />
+          <button onClick={handleSearch} style={{ display: 'none' }} />
+        </div>
+
+        <AutoSearch query={query} />
+      </Form>
+    </>
+
   )
 }
 

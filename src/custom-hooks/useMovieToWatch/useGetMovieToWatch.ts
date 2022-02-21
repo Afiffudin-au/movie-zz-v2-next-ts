@@ -1,7 +1,7 @@
 import Axios from 'axios'
 import { addMovieToWatch } from '../../redux/movieSlice'
 import { useAppDispatch } from '../../store/store'
-export function useGetMovieToWatch() {
+export default function useGetMovieToWatch() {
   const dispatch = useAppDispatch()
   const getMovieTopRated = () => {
     dispatch(

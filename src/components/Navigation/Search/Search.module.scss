@@ -1,7 +1,9 @@
 .form {
   width: 100%;
+  position: relative;
   .inputControl {
     width: 80%;
+    border-radius: 0 !important;
   }
 }
 @media (min-width: 320px) and (max-width: 767.98px) {

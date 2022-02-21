@@ -2,6 +2,7 @@ import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 import { Container, Jumbotron } from 'react-bootstrap'
 import { useAppDispatch } from '../../store/store'
+import AutoSearch from '../AutoSearch/AutoSearch'
 import styles from './Banner.module.scss'
 function Banner() {
   const [searchQuery, setSearchQuery] = useState<string>('')
@@ -16,7 +17,7 @@ function Banner() {
   }
   return (
     <Jumbotron fluid className={styles.jumbotron}>
-      <Container>
+      <Container className={styles.container}>
         <h1 className={styles.welcome}>Welcome.</h1>
         <p className={styles.desc}>
           Millions of movies, TV shows and people to discover. Explore now.
@@ -33,6 +34,7 @@ function Banner() {
             <button onClick={handleSubmit}>Search</button>
           </form>
         </div>
+        <AutoSearch query={searchQuery} />
       </Container>
     </Jumbotron>
   )

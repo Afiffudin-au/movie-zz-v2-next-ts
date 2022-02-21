@@ -79,7 +79,7 @@ function Navigation({ homeBack }: { homeBack?: boolean }) {
                 </Link>
               </div>
               <div className={styles.navItem}>
-                <Link href='/tv/top_ratedr'>
+                <Link href='/tv/top_rated'>
                   <a>Top Rated</a>
                 </Link>
               </div>

@@ -4,7 +4,7 @@ import StarIcon from '@material-ui/icons/Star'
 import TodayIcon from '@material-ui/icons/Today'
 import styles from './TvToWatchGroup.module.scss'
 import TvToWatchContainer from '../TvToWatchContainer/TvToWatchContainer'
-import { useTvToWatch } from '../../custom-hooks/useTvToWatch/useTvToWatch'
+import useTvToWatch from '../../custom-hooks/useTvToWatch/useTvToWatch'
 import LiveTvIcon from '@material-ui/icons/LiveTv'
 import { BottomNavigationStyled } from '../Mui-custom/BottomNavigation/BottomNavigation'
 function TvToWatchGroup({ tvToWatchSSR }: { tvToWatchSSR: any }) {

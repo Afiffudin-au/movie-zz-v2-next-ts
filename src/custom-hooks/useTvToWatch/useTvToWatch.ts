@@ -1,7 +1,7 @@
 import Axios from 'axios'
 import { addTvToWatch } from '../../redux/movieSlice'
 import { useAppDispatch } from '../../store/store'
-export function useTvToWatch() {
+export default function useTvToWatch() {
   const dispatch = useAppDispatch()
   const getTvTopRated = () => {
     dispatch(

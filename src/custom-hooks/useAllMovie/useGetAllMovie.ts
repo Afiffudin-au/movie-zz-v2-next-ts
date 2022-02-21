@@ -1,7 +1,7 @@
 import Axios from 'axios'
 import { useState } from 'react'
 
-export function useGetAllMovie() {
+export default function useGetAllMovie() {
   const [dataMovies, setDataMovies] = useState<any>([])
   const [loading, setLoading] = useState<boolean>(true)
   const [url, setUrl] = useState<string>('')

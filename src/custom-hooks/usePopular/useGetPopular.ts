@@ -1,7 +1,7 @@
 import Axios from 'axios'
 import { addPopular } from '../../redux/movieSlice'
 import { useAppDispatch } from '../../store/store'
-export function useGetPopular() {
+export default function useGetPopular() {
   const dispatch = useAppDispatch()
   const getMoviePopular = () => {
     dispatch(

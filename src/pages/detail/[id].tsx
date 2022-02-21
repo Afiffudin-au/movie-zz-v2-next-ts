@@ -30,8 +30,8 @@ function DetailPage({ dataDetail, dataPeople, similars, id }: DetailPageProps) {
   const { dataSimilar, mediaType } = similars
   const [imageLoad, setImageLoad] = useState<boolean>(false)
   const [display, setDisplay] = useState<string>('none')
-  const sliceCast = dataPeople?.cast?.slice(0, 20)
-  const sliceCrew = dataPeople?.crew?.slice(0, 20)
+  const sliceCast = dataPeople?.cast?.slice(0, 10)
+  const sliceCrew = dataPeople?.crew?.slice(0, 10)
   const handleImageLoad = () => {
     setDisplay('block')
     setImageLoad(true)
