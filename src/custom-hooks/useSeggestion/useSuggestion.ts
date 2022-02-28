@@ -1,9 +1,9 @@
 import { useState } from 'react'
 
-const useLiveSearch = ()=>{
+const useSuggestion = ()=>{
   const [isLoading,setIsLoading] = useState<boolean>(false)
   const [keywords,setKeywords] = useState<any>([])
-  const getLiveSearch = (controller:any,query:string,userText:any)=>{
+  const getSuggestion = (controller:any,query:string,userText:any)=>{
     if (userText === '') {
       setKeywords([])
       return
@@ -38,7 +38,7 @@ const useLiveSearch = ()=>{
   return{
     isLoading,
     keywords,
-    getLiveSearch
+    getSuggestion
   }
 }
-export default useLiveSearch
+export default useSuggestion

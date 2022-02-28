@@ -1,8 +1,7 @@
 import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 import { Container, Jumbotron } from 'react-bootstrap'
-import { useAppDispatch } from '../../store/store'
-import AutoSearch from '../AutoSearch/AutoSearch'
+import AutoSuggest from '../AutoSuggest/AutoSuggest'
 import styles from './Banner.module.scss'
 function Banner() {
   const [searchQuery, setSearchQuery] = useState<string>('')
@@ -34,7 +33,7 @@ function Banner() {
             <button onClick={handleSubmit}>Search</button>
           </form>
         </div>
-        <AutoSearch query={searchQuery} />
+        <AutoSuggest query={searchQuery} />
       </Container>
     </Jumbotron>
   )

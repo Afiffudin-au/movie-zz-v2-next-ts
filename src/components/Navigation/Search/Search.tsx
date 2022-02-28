@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Form, FormControl } from 'react-bootstrap'
 import styles from './Search.module.scss'
 import { useRouter } from 'next/router'
-import AutoSearch from '../../AutoSearch/AutoSearch'
+import AutoSuggest from '../../AutoSuggest/AutoSuggest'
 function Search() {
   const router = useRouter()
   const [query, setQuery] = useState<string>('')
@@ -26,8 +26,7 @@ function Search() {
           />
           <button onClick={handleSearch} style={{ display: 'none' }} />
         </div>
-
-        <AutoSearch query={query} />
+        <AutoSuggest query={query} />
       </Form>
     </>
 
