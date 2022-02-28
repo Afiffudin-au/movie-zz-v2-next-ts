@@ -34,6 +34,7 @@ export default function Home({ populars, movieToWatch, tvToWatch }: any) {
           name='og:description'
           content='Movie-zz provides various movies, tv and peoples from all over the world'
         />
+        <meta name="google-site-verification" content="Gy8DecfJhmdkMec5xQrsKKV6mriP35Ynkhxl1_eX3oU" />
       </Head>
       <Navigation />
       <Banner />
