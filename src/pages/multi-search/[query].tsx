@@ -9,7 +9,8 @@ import { PaginationItem } from '@material-ui/lab'
 import styles from './MovieSearch.module.scss'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
-function MovieSearch({ resultMovies, searchQuery }: any) {
+import Error from 'next/error'
+function MovieSearch({ erorr, resultMovies, searchQuery }: any) {
   const router = useRouter()
   const [pages, setPages] = useState<number>(1)
   const handleChange = (event: any, value: any) => {
@@ -31,6 +32,11 @@ function MovieSearch({ resultMovies, searchQuery }: any) {
     },
   }))
   const classes = useStyles()
+  if (erorr) {
+    return (
+      <Error statusCode={404} title={'Your search was not found'} />
+    )
+  }
   return (
     <>
       <Head>
@@ -128,8 +134,10 @@ export const getServerSideProps = async (context: any) => {
     `https://api.themoviedb.org/3/search/multi?api_key=${process.env.API_KEY}&query=${params.query}&page=${page}`
   )
   const resultMovies = await res.json()
+  const erorr = resultMovies.results.length === 0 ? true : false
   return {
     props: {
+      erorr,
       resultMovies,
       searchQuery,
     },
