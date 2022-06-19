@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 import { Container, Jumbotron } from 'react-bootstrap'
-import AutoSuggest from '../AutoSuggest/AutoSuggest'
+import AutoSuggest from '../AutoSuggest'
 import styles from './Banner.module.scss'
 function Banner() {
   const [searchQuery, setSearchQuery] = useState<string>('')

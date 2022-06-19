@@ -3,15 +3,12 @@ import { useSelector } from 'react-redux'
 import { MovieCardItems } from '../../interfaces/movieCardItem'
 import { selectTvToWatchBlocks } from '../../redux/movieSlice'
 import { TvToWatchBlocksItems } from '../../redux/movieSliceInterface'
-import CardInlineFlex from '../CardInlineFlex/CardInlineFlex'
-import HorizontalContainer from '../HorizontalContainer/HorizontalContainer'
+import CardInlineFlex from '../CardInlineFlex'
+import HorizontalContainer from '../HorizontalContainer'
 import { StyledLinearProgress } from '../Mui-custom/LoadingProgress/LoadingProgress'
 function TvToWatchContainer({ tvToWatchSSR }: { tvToWatchSSR: Required<any> }) {
-  const {
-    tvToWatch,
-    loading,
-    url,
-  }: Partial<TvToWatchBlocksItems> = useSelector(selectTvToWatchBlocks)
+  const { tvToWatch, loading, url }: Partial<TvToWatchBlocksItems> =
+    useSelector(selectTvToWatchBlocks)
   return (
     <>
       {loading && (
@@ -23,11 +20,11 @@ function TvToWatchContainer({ tvToWatchSSR }: { tvToWatchSSR: Required<any> }) {
         {tvToWatch &&
           tvToWatch?.results?.map((item: MovieCardItems, index: number) => (
             <CardInlineFlex
-              url={process.env.REACT_APP_TV_DETAIL}
+              url={process.env.NEXT_APP_TV_DETAIL}
               id={item.id}
               releaseDate={item.release_date || item.first_air_date}
               originalTitle={item.original_title || item.original_name}
-              posterPath={`${process.env.REACT_APP_POSTER_URL}${item.poster_path}`}
+              posterPath={`${process.env.NEXT_APP_POSTER_URL}${item.poster_path}`}
               voteAverage={item.vote_average || 0}
               key={item.id}
             />
@@ -35,11 +32,11 @@ function TvToWatchContainer({ tvToWatchSSR }: { tvToWatchSSR: Required<any> }) {
         {tvToWatchSSR &&
           tvToWatchSSR?.results?.map((item: MovieCardItems, index: number) => (
             <CardInlineFlex
-              url={process.env.REACT_APP_TV_DETAIL}
+              url={process.env.NEXT_APP_TV_DETAIL}
               id={item.id}
               releaseDate={item.release_date || item.first_air_date}
               originalTitle={item.original_title || item.original_name}
-              posterPath={`${process.env.REACT_APP_POSTER_URL}${item.poster_path}`}
+              posterPath={`${process.env.NEXT_APP_POSTER_URL}${item.poster_path}`}
               voteAverage={item.vote_average || 0}
               key={item.id}
             />

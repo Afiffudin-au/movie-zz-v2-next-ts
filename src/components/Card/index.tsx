@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import StarRateIcon from '@material-ui/icons/StarRate'
 import { amber } from '@material-ui/core/colors'
-import styles from './CardInlineFlex.module.scss'
+import styles from './Card.module.scss'
 import { LightTooltip } from '../Mui-custom/LightTooltip/LightTooltip'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
@@ -13,9 +13,9 @@ export interface CardOption {
   releaseDate?: any
   originalTitle?: string
   posterPath?: any
-  voteAverage?: number | string
+  voteAverage?: number
 }
-function CardInlineFlex({
+function Card({
   url,
   mediaType,
   styleProps,
@@ -25,15 +25,14 @@ function CardInlineFlex({
   posterPath,
   voteAverage,
 }: CardOption) {
-  const [imageLoad, setImageLoad] = useState<boolean>(false)
   const router = useRouter()
   const handleDetail = () => {
     const query = router.query
     if (mediaType === 'movie') {
-      query.url = process.env.REACT_APP_MOVIE_DETAIL
+      query.url = process.env.NEXT_APP_MOVIE_DETAIL
     }
     if (mediaType === 'tv') {
-      query.url = process.env.REACT_APP_PEOPLE_DETAIL
+      query.url = process.env.NEXT_APP_TV_DETAIL
     }
     if (url) {
       query.url = url
@@ -55,27 +54,26 @@ function CardInlineFlex({
             <Image
               src={posterPath}
               alt={originalTitle}
-              width={220}
-              height={330}
+              height={150}
+              width={100}
               objectFit='fill'
-              quality={100}
               placeholder='blur'
-              blurDataURL='/220x330.png'
+              blurDataURL='/150x100.png'
+              quality={100}
             />
           </div>
         </LightTooltip>
-
         <div className={styles.Card_desc}>
           <h1>{originalTitle}</h1>
           <p>{releaseDate}</p>
         </div>
         <div className={styles.CardStarRate}>
           <StarRateIcon style={{ color: amber[600] }} />
-          <span>{voteAverage}</span>
+          <span>{voteAverage?.toFixed(1)}</span>
         </div>
       </div>
     </div>
   )
 }
 
-export default CardInlineFlex
+export default Card

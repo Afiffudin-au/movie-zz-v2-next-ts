@@ -3,11 +3,11 @@ import Pagination from '@material-ui/lab/Pagination'
 import styles from './AllMovies.module.scss'
 import { MovieCardItems } from '../../interfaces/movieCardItem'
 import { StyledLinearProgress } from '../Mui-custom/LoadingProgress/LoadingProgress'
-import useGetAllMovie from '../../custom-hooks/useAllMovie/useGetAllMovie'
+import useGetAllMovie from '../../custom-hooks/useAllMovie'
 import { PaginationItem } from '@material-ui/lab'
 import { makeStyles } from '@material-ui/core'
-import GridLayout from '../GridLayout/GridLayout'
-import Card, { CardOption } from '../Card/Card'
+import GridLayout from '../GridLayout'
+import Card, { CardOption } from '../Card'
 function AllMovies() {
   const { getAllMovie, loading, dataMovies, url } = useGetAllMovie()
   const [pages, setPages] = useState<number>(1)
@@ -39,12 +39,12 @@ function AllMovies() {
         {dataMovies &&
           dataMovies?.results?.map((item: MovieCardItems, index: number) => (
             <MemoizedChildComponent
-              url={process.env.REACT_APP_MOVIE_DETAIL}
+              url={process.env.NEXT_APP_MOVIE_DETAIL}
               styleProps={{ display: 'block', width: '100%' }}
               id={item.id}
               releaseDate={item.release_date || item.first_air_date}
               originalTitle={item.original_title || item.original_name}
-              posterPath={`${process.env.REACT_APP_POSTER_URL}${item.poster_path}`}
+              posterPath={`${process.env.NEXT_APP_POSTER_URL}${item.poster_path}`}
               voteAverage={item.vote_average || 0}
               key={item.id}
             />

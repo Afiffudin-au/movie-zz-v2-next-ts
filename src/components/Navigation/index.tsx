@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Nav, Navbar, NavDropdown } from 'react-bootstrap'
 import styles from './Navigation.module.scss'
-import Search from './Search/Search'
+import Search from './Search'
 import MenuIcon from '@material-ui/icons/Menu'
 import CloseIcon from '@material-ui/icons/Close'
 import HomeIcon from '@material-ui/icons/Home'

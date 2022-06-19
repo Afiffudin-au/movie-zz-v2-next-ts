@@ -1,16 +1,17 @@
 import React from 'react'
 import { useState } from 'react'
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
-import Card from '../../components/Card/Card'
-import CardPeople from '../../components/CardPeople/CardPeople'
-import GridLayout from '../../components/GridLayout/GridLayout'
+import Card from '../../components/Card'
+import CardPeople from '../../components/CardPeople'
+import GridLayout from '../../components/GridLayout'
 import styles from './DetailPage.module.scss'
 import { MovieCardItems } from '../../interfaces/movieCardItem'
 import { useRouter } from 'next/router'
 import Breadcrumbs from '@material-ui/core/Breadcrumbs'
 import Link from '@material-ui/core/Link'
 import Head from 'next/head'
-import Navigation from '../../components/Navigation/Navigation'
+import Navigation from '../../components/Navigation'
+import { api_config } from '../../api-config'
 interface DetailPageProps {
   dataDetail: Required<any>
   dataPeople: Required<any>
@@ -65,7 +66,7 @@ function DetailPage({ dataDetail, dataPeople, similars, id }: DetailPageProps) {
         <meta property='og:site_name' content='MovieZzNextTs' />
         <meta
           property='og:image'
-          content={`${process.env.REACT_APP_BIG_POSTER_URL}${dataDetail.poster_path}`}
+          content={`${process.env.NEXT_APP_BIG_POSTER_URL}${dataDetail.poster_path}`}
         />
         <meta property='og:image:alt' content='image poster' />
         <meta property='og:type' content='website' />
@@ -84,7 +85,7 @@ function DetailPage({ dataDetail, dataPeople, similars, id }: DetailPageProps) {
       <div
         className={styles.detailPage}
         style={{
-          backgroundImage: `url(${process.env.REACT_APP_POSTER_URL}${dataDetail.backdrop_path})`,
+          backgroundImage: `url(${process.env.NEXT_APP_POSTER_URL}${dataDetail.backdrop_path})`,
         }}>
         <div className={styles.detailPage__customBg}>
           <div className={styles.detailPage__content}>
@@ -104,7 +105,7 @@ function DetailPage({ dataDetail, dataPeople, similars, id }: DetailPageProps) {
 
               <img
                 style={{ display: display }}
-                src={`${process.env.REACT_APP_BIG_POSTER_URL}${dataDetail.poster_path}`}
+                src={`${process.env.NEXT_APP_BIG_POSTER_URL}${dataDetail.poster_path}`}
                 alt={dataDetail.title}
                 onLoad={handleImageLoad}
               />
@@ -152,10 +153,10 @@ function DetailPage({ dataDetail, dataPeople, similars, id }: DetailPageProps) {
         <GridLayout>
           {sliceCast?.map((item: PeopleCastItem, index: number) => (
             <CardPeople
-              url={process.env.REACT_APP_PEOPLE_DETAIL}
+              url={process.env.NEXT_APP_PEOPLE_DETAIL}
               id={item.id}
               name={item.name}
-              image={`${process.env.REACT_APP_POSTER_URL}${item.profile_path}`}
+              image={`${process.env.NEXT_APP_POSTER_URL}${item.profile_path}`}
               role={item.character}
               key={item.id}
             />
@@ -165,10 +166,10 @@ function DetailPage({ dataDetail, dataPeople, similars, id }: DetailPageProps) {
         <GridLayout>
           {sliceCrew?.map((item: PeopleCastItem, index: number) => (
             <CardPeople
-              url={process.env.REACT_APP_PEOPLE_DETAIL}
+              url={process.env.NEXT_APP_PEOPLE_DETAIL}
               id={item.id}
               name={item.name}
-              image={`${process.env.REACT_APP_POSTER_URL}${item.profile_path}`}
+              image={`${process.env.NEXT_APP_POSTER_URL}${item.profile_path}`}
               role={item.job}
               key={index}
             />
@@ -187,7 +188,7 @@ function DetailPage({ dataDetail, dataPeople, similars, id }: DetailPageProps) {
               id={item.id}
               releaseDate={item.release_date || item.first_air_date}
               originalTitle={item.original_title || item.original_name}
-              posterPath={`${process.env.REACT_APP_POSTER_URL}${item.poster_path}`}
+              posterPath={`${process.env.NEXT_APP_POSTER_URL}${item.poster_path}`}
               voteAverage={item.vote_average || 0}
               key={item.id}
             />
@@ -204,9 +205,9 @@ export const getServerSideProps = async (context: any) => {
   const id = context.query.id
   const key = id
   const [res, resPeople, resSimilar] = await Promise.all([
-    fetch(`${url}${id}?api_key=${process.env.API_KEY}`),
-    fetch(`${url}${id}/credits?api_key=${process.env.API_KEY}`),
-    fetch(`${url}${id}/similar?api_key=${process.env.API_KEY}`),
+    fetch(`${url}${id}?api_key=${api_config.API_KEY}`),
+    fetch(`${url}${id}/credits?api_key=${api_config.API_KEY}`),
+    fetch(`${url}${id}/similar?api_key=${api_config.API_KEY}`),
   ])
   //for movie
   const dataDetail = await res.json()
@@ -216,11 +217,11 @@ export const getServerSideProps = async (context: any) => {
     dataSimilar,
     mediaType: '',
   }
-  if (`${url}` === process.env.REACT_APP_MOVIE_DETAIL) {
+  if (`${url}` === api_config.MOVIE_DETAIL) {
     similars.mediaType = 'movie'
   }
   //for tv
-  if (`${url}` === process.env.REACT_APP_TV_DETAIL) {
+  if (`${url}` === api_config.TV_DETAIL) {
     similars.mediaType = 'tv'
   }
 

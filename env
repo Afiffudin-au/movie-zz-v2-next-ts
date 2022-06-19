@@ -1,0 +1,5 @@
+NEXT_PUBLIC_BASE_URL=https://api.themoviedb.org
+NEXT_PUBLIC_API_VERSION=3
+NEXT_PUBLIC_API_KEY=
+NEXT_PUBLIC_MOVIE_DETAIL=https://api.themoviedb.org/3/movie/
+NEXT_PUBLIC_TV_DETAIL=https://api.themoviedb.org/3/tv/

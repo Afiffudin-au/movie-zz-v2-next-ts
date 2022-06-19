@@ -1,15 +1,16 @@
 import { makeStyles } from '@material-ui/core'
 import { Pagination } from '@material-ui/lab'
 import React, { useState } from 'react'
-import Card, { CardOption } from '../../components/Card/Card'
-import GridLayout from '../../components/GridLayout/GridLayout'
-import Navigation from '../../components/Navigation/Navigation'
+import Card, { CardOption } from '../../components/Card'
+import GridLayout from '../../components/GridLayout'
+import Navigation from '../../components/Navigation'
 import { MovieCardItems } from '../../interfaces/movieCardItem'
 import { PaginationItem } from '@material-ui/lab'
 import styles from './MovieSearch.module.scss'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 import Error from 'next/error'
+import { api_config } from '../../api-config'
 function MovieSearch({ erorr, resultMovies, searchQuery }: any) {
   const router = useRouter()
   const [pages, setPages] = useState<number>(1)
@@ -33,9 +34,7 @@ function MovieSearch({ erorr, resultMovies, searchQuery }: any) {
   }))
   const classes = useStyles()
   if (erorr) {
-    return (
-      <Error statusCode={404} title={'Your search was not found'} />
-    )
+    return <Error statusCode={404} title={'Your search was not found'} />
   }
   return (
     <>
@@ -58,7 +57,7 @@ function MovieSearch({ erorr, resultMovies, searchQuery }: any) {
         <meta
           property='og:image'
           content={
-            process.env.REACT_APP_POSTER_URL2 +
+            process.env.NEXT_APP_POSTER_URL2 +
             resultMovies.results[0].poster_path
           }
         />
@@ -82,7 +81,7 @@ function MovieSearch({ erorr, resultMovies, searchQuery }: any) {
                   id={item.id}
                   releaseDate={item.release_date || item.first_air_date}
                   originalTitle={item.original_title || item.original_name}
-                  posterPath={`${process.env.REACT_APP_POSTER_URL}${item.poster_path}`}
+                  posterPath={`${process.env.NEXT_APP_POSTER_URL}${item.poster_path}`}
                   voteAverage={item.vote_average || 0}
                 />
               )
@@ -127,11 +126,12 @@ function compare(prevProps: any, nextProps: any) {
 }
 const MemoizedChildComponent = React.memo(ChildComponent, compare)
 export const getServerSideProps = async (context: any) => {
+  const url = `${api_config.BASE_URL}/${api_config.API_VERSION}`
   const { params } = context
   const page = context.query.page
   const searchQuery = params.query
   const res = await fetch(
-    `https://api.themoviedb.org/3/search/multi?api_key=${process.env.API_KEY}&query=${params.query}&page=${page}`
+    `${url}search/multi?api_key=${api_config.API_KEY}&query=${params.query}&page=${page}`
   )
   const resultMovies = await res.json()
   const erorr = resultMovies.results.length === 0 ? true : false

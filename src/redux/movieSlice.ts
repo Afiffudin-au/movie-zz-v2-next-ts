@@ -6,17 +6,7 @@ import {
   MovieToWatchActionItems,
   TvToWatchBlocksItems,
   TvToWatchActionItems,
-  SearchResultBlocksItems,
-  SearchResultActionItems,
   StateMovieItems,
-  UrlParamsActionItems,
-  UrlParamsBlockItems,
-  DetailBlockActionItems,
-  DetailBlockItems,
-  MovieBlockAction,
-  MovieBlockItems,
-  TvShowBlockActionItems,
-  TvShowBlockItems,
 } from './movieSliceInterface'
 export const movieSlice = createSlice({
   name: 'movie',
@@ -62,16 +52,16 @@ export const movieSlice = createSlice({
   },
   reducers: {
     addPopular: (
-      state: { popularBlocks: PopularBlockItems },
-      action: { payload: PopoularActionItems }
+      state: { popularBlocks: Partial<PopularBlockItems> },
+      action: { payload: Partial<PopoularActionItems> }
     ) => {
       state.popularBlocks.loading = action.payload.loading
       state.popularBlocks.url = action.payload.url
       state.popularBlocks.populars = action.payload.dataPopulars || []
     },
     addMovieToWatch: (
-      state: { movieToWatchBlocks: MovieToWatchBlocksItems },
-      action: { payload: MovieToWatchActionItems }
+      state: { movieToWatchBlocks: Partial<MovieToWatchBlocksItems> },
+      action: { payload: Partial<MovieToWatchActionItems> }
     ) => {
       state.movieToWatchBlocks.loading = action.payload.loading
       state.movieToWatchBlocks.url = action.payload.url
@@ -79,8 +69,8 @@ export const movieSlice = createSlice({
         action.payload.dataMovieToWatch || []
     },
     addTvToWatch: (
-      state: { tvToWatchBlocks: TvToWatchBlocksItems },
-      action: { payload: TvToWatchActionItems }
+      state: { tvToWatchBlocks: Partial<TvToWatchBlocksItems> },
+      action: { payload: Partial<TvToWatchActionItems> }
     ) => {
       state.tvToWatchBlocks.loading = action.payload.loading
       state.tvToWatchBlocks.url = action.payload.url
