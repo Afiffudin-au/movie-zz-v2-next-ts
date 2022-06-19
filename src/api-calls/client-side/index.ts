@@ -1,5 +1,5 @@
 import axios, { AxiosRequestConfig } from 'axios'
-import { SuccessResConfig } from '../api-datatypes'
+import { SuccessResConfig } from '../../api-datatypes'
 interface AxiosRequestConfigCustom extends AxiosRequestConfig{
   controller? : any
 }

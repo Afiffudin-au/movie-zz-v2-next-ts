@@ -1,4 +1,4 @@
-import callAPI from '../..'
+import callAPI from '..'
 import { api_config } from '../../../api-config'
 
 export const getPopularMovieAPI = async (params?:{page : number}) => {

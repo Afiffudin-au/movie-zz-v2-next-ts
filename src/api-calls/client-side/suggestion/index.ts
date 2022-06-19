@@ -1,4 +1,4 @@
-import callAPI from '../..'
+import callAPI from '..'
 import { api_config } from '../../../api-config'
 export const getSuggestionAPI = async (query:string,controller:any)=>{
   const url = `${api_config.BASE_URL}/${api_config.API_VERSION}/search/keyword`
