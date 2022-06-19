@@ -131,7 +131,7 @@ export const getServerSideProps = async (context: any) => {
   const page = context.query.page
   const searchQuery = params.query
   const res = await fetch(
-    `${url}search/multi?api_key=${api_config.API_KEY}&query=${params.query}&page=${page}`
+    `${url}/search/multi?api_key=${api_config.API_KEY}&query=${params.query}&page=${page}`
   )
   const resultMovies = await res.json()
   const erorr = resultMovies.results.length === 0 ? true : false
