@@ -1,7 +1,6 @@
 import { AppProps } from 'next/app'
 import React from 'react'
 import '../styles/globals.css'
-import 'react-grid-layout/css/styles.css'
 import { Provider } from 'react-redux'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import store from '../store/store'
