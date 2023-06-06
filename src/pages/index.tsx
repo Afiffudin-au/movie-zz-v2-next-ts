@@ -12,6 +12,7 @@ export default function Home({ populars, movieToWatch, tvToWatch }: any) {
     <div className='home'>
       <Head>
         <title>Movie-zz-v2-next-ts</title>
+        <meta name="turboviplay" content="NxnRYfw8U3-turboviplay" />
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <meta
           name='description'
